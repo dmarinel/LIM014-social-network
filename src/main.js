@@ -1,4 +1,4 @@
-// Este es el punto de entrada de tu aplicacion
+// Este es el punto de entrada de la aplicacion
 
 import { myFunction } from './lib/index.js';
 
