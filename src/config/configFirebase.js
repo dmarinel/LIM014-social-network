@@ -1,9 +1,4 @@
-import firebase from 'firebase/app';
-// Add the Firebase products that you want to use
-import 'firebase/auth';
-import 'firebase/firestore';
-
-export const firebaseConfig = {
+const firebaseConfig = {
   apiKey: 'AIzaSyBW8kZyh92acTLabbh5uHVkqORBpaBPBL8',
   authDomain: 'funkook-85045.firebaseapp.com',
   projectId: 'funkook-85045',
@@ -13,5 +8,4 @@ export const firebaseConfig = {
   measurementId: 'G-NLKW0NCBYR',
 
 };
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);

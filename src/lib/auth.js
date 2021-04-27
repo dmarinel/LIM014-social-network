@@ -1,9 +1,15 @@
-import {getAuth, onAuthStateChanged} from 'firebase/auth';
+import * from './config/configFirebase.js';
+import {getAuth, createUserWithEmailAndPassword} from 'firebase/auth';
 
+console.log(`holaaaaaaa`)
 const auth = getAuth()
-onAuthStateChanged(auth, (user)=>{
-    if(){
-        
-    }
-
+createUserWithEmailAndPassword(auth, email, password)
+.then((userCredencial)=>{
+    console.log(userCredencial)
 })
+.catch()
+
+
+
+
+
