@@ -1,9 +1,8 @@
 // Este es el punto de entrada de tu aplicacion
 
-import { myFunction } from './lib/index.js';
+import App from "./view/App.js"
 
-myFunction();
-
+document.getElementById("root").appendChild(App())
 
 
 
