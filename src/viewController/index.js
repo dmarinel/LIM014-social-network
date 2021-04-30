@@ -11,8 +11,8 @@ const changeView = (route) => {
       container.appendChild(components.signUp());
       break;
     case '#/Home':
-      container.appendChild(components.home());
       container.appendChild(components.header());
+      container.appendChild(components.home());
       break;
     case '#/Profile':
       container.appendChild(components.header());
