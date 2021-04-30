@@ -1,8 +1,8 @@
+import { createUser } from '../lib/user/userService.js';
 
-import {createUser} from "../lib/user/userService.js"
-const SignUp = () => {
-  const formSignUp = document.createElement("form");
-  formSignUp.innerHTML = `
+export default () => {
+  const viewSignUp = document.createElement('form');
+  viewSignUp.innerHTML = `
     
     <div class="col-md-4">
       <label for="validationCustom01F">Full Name</label>
@@ -12,20 +12,6 @@ const SignUp = () => {
         value="Mark"
         required
       />
-    </div>
-    <div class="col-md-4">
-      <label for="validationCustomUsername" 
-        >Username</label
-      >
-      <span >
-        <span " id="inputGroupPrepend">@</span>
-        <input
-          type="text"
-          id="validationCustomUsername"
-          aria-describedby="inputGroupPrepend"
-          required
-        />
-      </span>
     </div>
     <div >
       <label for="floatingInput">Email address</label>
@@ -37,17 +23,34 @@ const SignUp = () => {
     </div>
     <div >
       <label for="floatingPassword">Password</label>
-      <input type="password" id="signUpPassword" placeholder="Password" />
+      <input 
+        type="password" 
+        id="signUpPassword" 
+        placeholder="Password" 
+      />
     </div>
     <div >
       <label for="floatingPassword">Confirm Password</label>
       <input
         type="password"
         class="form-control"
-        id="floatingPassword"
+        id="singUpConfirmPassword"
         placeholder="Password"
       />
     </div>
+    <div >
+    <label for="validationCustomUsername" 
+      >Chosse your photo</label
+    >
+    <span >
+      <input
+        type="file"
+        id="signUpPhoto"
+        aria-describedby="inputGroupPrepend"
+        required
+      />
+    </span>
+  </div>
     <div >
       <div class="form-check">
         <input
@@ -75,20 +78,22 @@ const SignUp = () => {
   
     `;
 
-    const signUpEmail = formSignUp.querySelector("#signUpEmail")
-    const signUpPassword = formSignUp.querySelector("#signUpPassword")
-    const signUpFullname = formSignUp.querySelector("#signUpFullname")
-    const buttonRegister = formSignUp.querySelector("#buttonRegister")
-    
-    
-    
-    buttonRegister.addEventListener("click", (e)=>{
-        // e.preventDefault()
-        console.log(`hola user`);
-        createUser(signUpFullname.value, signUpEmail.value, signUpPassword.value)
-    })
+  const signUpEmail = viewSignUp.querySelector('#signUpEmail');
+  const signUpPassword = viewSignUp.querySelector('#signUpPassword');
+  const signUpFullname = viewSignUp.querySelector('#signUpFullname');
+  const buttonRegister = viewSignUp.querySelector('#buttonRegister');
+  const signUpPhoto = viewSignUp.querySelector('#signUpPhoto');
 
-  return formSignUp;
+  buttonRegister.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log('hola user');
+    createUser(
+      signUpFullname.value,
+      signUpEmail.value,
+      signUpPassword.value,
+      signUpPhoto.value,
+    );
+  });
+
+  return viewSignUp;
 };
-
-export default SignUp;

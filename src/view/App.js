@@ -1,9 +1,19 @@
-import SignUp from "./SignUp.js"
+import Home from './Home.js';
+import SignIn from './SignIn.js';
+import SignUp from './SignUp.js';
+import Header from './Header.js';
+import Profile from './Profile.js';
+import RecoverPassword from './RecoverPassword.js';
+import Different from './404.js';
 
-const App = () => {
-    const main = document.createElement("main")
-    main.appendChild(SignUp())
-    return main 
-}
+const components = {
+  home: Home,
+  signIn: SignIn,
+  signUp: SignUp,
+  header: Header,
+  profile: Profile,
+  recoverPassword: RecoverPassword,
+  different: Different,
+};
 
-export default App
+export { components };
