@@ -1,6 +1,7 @@
-import { createUser } from '../lib/user/userService.js';
+import { createUser,upDateUser, uploadFileUser } from '../lib/user/userService.js';
 
 export default () => {
+
   const viewSignUp = document.createElement('div');
   viewSignUp.innerHTML = `
     
@@ -87,7 +88,7 @@ export default () => {
   </div>
 </div>
 <div class="col-12">
-  <a class="btn btn-primary" id="buttonRegister"  href="#/Home">REGISTER</a>
+  <button class="btn btn-primary" id="buttonRegister"  >REGISTER</button>
 </div>
 <div class="col-12">
   <a id="buttonSignIn" class="btn btn-primary" href="">
@@ -100,16 +101,24 @@ export default () => {
   const signUpFullname = viewSignUp.querySelector('#signUpFullname');
   const buttonRegister = viewSignUp.querySelector('#buttonRegister');
   const signUpPhoto = viewSignUp.querySelector('#signUpPhoto');
+  console.log(signUpPhoto);
 
-  buttonRegister.addEventListener('click', (e) => {
-    e.preventDefault();
+  buttonRegister.addEventListener('click', () => {
+    // e.preventDefault();
     console.log('hola user');
-    createUser(
-      signUpFullname.value,
-      signUpEmail.value,
-      signUpPassword.value,
-      signUpPhoto.value,
-    );
+    createUser(signUpEmail.value, signUpPassword.value)
+      .then((data) => {
+        console.log(data);
+        upDateUser(signUpFullname.value, signUpPhoto.value);
+        console.log(signUpPhoto.files[0]);
+        // uploadFileUser(signUpPhoto.files[0], signUpFullname.value);
+        window.location.hash = '#/Home';
+      })
+      .catch((error) => {
+        console.log('hola error');
+        console.log(error.message);
+        window.location.hash = '#/Register';
+      });
   });
 
   return viewSignUp;
