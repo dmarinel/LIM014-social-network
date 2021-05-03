@@ -1,165 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
-  <title>Document</title>
-</head>
-<body>
-  <main id="formSignInUp">
-    <!-- S I G N  I N  F O R M -->
-    <form id="userSignInForm" class="">
-      <img
-        class=""
-        src=""
-        width="72"
-        height="57"
-      />
-      <h1 class="">Please sign in</h1>
-
-      <div class="">
-        <label>Email address</label>
-        <input
-          type="email"
-          id="signInEmail"
-          placeholder="name@example.com"
-        />
-      </div>
-      <div class="">
-        <label >Password</label>
-        <input
-          type="password"
-          id="signInPassword"
-          placeholder="Password"
-        />
-      </div>
-
-      <!-- <div class="">
-        <label>
-          <input type="checkbox" value="remember-me" /> Remember me
-        </label>
-      </div> -->
-      <a id="buttonLogin" class="" href="#/Home" > Login </a>
-      <a id="buttonLogin buttonLoginFacebook" class="" href="#/Home" >
-        Facebook
-      </a>
-      <a id="buttonLogin buttonLoginGoogle" class="" href="#/Home" >
-        Google
-      </a>
-      <a id="buttonSignUp" href="#/Register" > Sign Up </a>
-      <p class="">&copy; 2017–2021</p>
-    </form>
-
-    <!-- S I G N  U P  F O R M -->
-    <form id="userRegisterForm" novalidate class="hide">
-      <div class="col-md-4">
-        <label for="validationCustom01" class="form-label">Full Name</label>
-        <input
-          type="text"
-          class="form-control"
-          id="validationCustom01"
-          value="Mark"
-          required
-        />
-        <!-- <div class="valid-feedback">Looks good!</div> -->
-      </div>
-      <div class="col-md-4">
-        <label for="validationCustomUsername" class="form-label"
-          >Username</label
-        >
-        <span class="input-group has-validation">
-          <span class="input-group-text" id="inputGroupPrepend">@</span>
-          <input
-            type="text"
-            class="form-control"
-            id="validationCustomUsername"
-            aria-describedby="inputGroupPrepend"
-            required
-          />
-          <!-- <div class="invalid-feedback">Please choose a username.</div> -->
-        </span>
-      </div>
-      <div class="form-floating">
-        <label for="floatingInput">Email address</label>
-        <input
-          type="email"
-          id="signUpEmail"
-          placeholder="name@example.com"
-        />
-      </div>
-      <div class="form-floating">
-        <label for="floatingPassword">Password</label>
-        <input
-          type="password"
-          id="signUpPassword"
-          placeholder="Password"
-        />
-      </div>
-      <div class="form-floating">
-        <label for="floatingPassword">Confirm Password</label>
-        <input
-          type="password"
-          class="form-control"
-          id="floatingPassword"
-          placeholder="Password"
-        />
-      </div>
-      <div class="col-12">
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            value=""
-            id="invalidCheck"
-            required
-          />
-          <label class="form-check-label" for="invalidCheck">
-            Agree to terms and conditions
-          </label>
-          <div class="invalid-feedback">
-            You must agree before submitting.
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root">
+      <!-- <main>
+        
+        <form id="userRegisterForm" novalidate class="hide">
+          <div class="col-md-4">
+            <label for="validationCustom01" class="form-label">Full Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="signUpFullname"
+              value="Mark"
+              required
+            />
           </div>
-        </div>
-      </div>
-      <div class="col-12">
-        <a class="btn btn-primary" id="buttonRegister"  href="#/Home">REGISTER</a>
-      </div>
-      <div class="col-12">
-        <a id="buttonSignIn" class="btn btn-primary" href="">
-          Sign in
-        </a>
-      </div>
-    </form>
-  </main>
-
-  <main id="homeRedSocial" class="hide">
-    <header>F U N K - O K K </header>
-    <a id="buttonLogOut"  href="">
-      Log Out
-    </a>
-    <div id="container">
-      <div>
-        <ul id="posts">
-         
-        </ul>
-      </div>
+          <div class="col-md-4">
+            <label for="validationCustomUsername" class="form-label"
+              >Username</label
+            >
+            <span class="input-group has-validation">
+              <span class="input-group-text" id="inputGroupPrepend">@</span>
+              <input
+                type="text"
+                class="form-control"
+                id="validationCustomUsername"
+                aria-describedby="inputGroupPrepend"
+                required
+              />
+            </span>
+          </div>
+          <div class="form-floating">
+            <label for="floatingInput">Email address</label>
+            <input
+              type="email"
+              id="signUpEmail"
+              placeholder="name@example.com"
+            />
+          </div>
+          <div class="form-floating">
+            <label for="floatingPassword">Password</label>
+            <input type="password" id="signUpPassword" placeholder="Password" />
+          </div>
+          <div class="form-floating">
+            <label for="floatingPassword">Confirm Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="floatingPassword"
+              placeholder="Password"
+            />
+          </div>
+          <div class="col-12">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="invalidCheck"
+                required
+              />
+              <label class="form-check-label" for="invalidCheck">
+                Agree to terms and conditions
+              </label>
+              <div class="invalid-feedback">
+                You must agree before submitting.
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <a id="buttonRegister" href="#/Home"
+              >REGISTER</a
+            >
+          </div>
+          <div class="col-12">
+            <a id="buttonSignIn" > Sign in </a>
+          </div>
+        </form>
+      </main> -->
     </div>
 
+    <script type="module" src="main.js"></script>
+    <!-- Firebase scripts -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
 
-  </main>
+    <!-- Add SDKs for Firebase products that you want to use https://firebase.google.com/docs/web/setup#available-libraries -->
 
-  <script type="module" src="main.js"></script>
-  <!-- Firebase scripts -->
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
-
-  <!-- Add SDKs for Firebase products that you want to use https://firebase.google.com/docs/web/setup#available-libraries -->
-  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script>
-
-  <script src="/src/config/configFirebase.js"></script>
-</body>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script>
+    <script src="config/configFirebase.js"></script>
+  </body>
 </html>
