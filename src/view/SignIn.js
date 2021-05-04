@@ -1,4 +1,4 @@
-import { signIn, signInGoogle} from '../lib/user/userService.js';
+import { signIn, signInGoogle } from '../lib/user/userService.js';
 
 export default () => {
   const viewSignIn = document.createElement('div');
@@ -43,43 +43,21 @@ export default () => {
     </form>`;
   console.log('hola mundo  ');
 
+  const btnGoogle = viewSignIn.querySelector('#buttonLoginGoogle');
 
-  // const userSignInForm = viewSignIn.getElementById('userSignInForm');
-  // userSignInForm.addEventListener('submit', (e) => {
-  //   e.preventDefault();
-  //   const signInEmail = viewSignIn.getElementById('signInEmail').value;
-  //   const signInPassword = viewSignIn.getElementById('signInPassword').value;
-  //   const error = viewSignIn.getElementById('error-message');
-  //   signIn(signInEmail, signInPassword)
-  //     .then((userCredential) => {
-
-  //       console.log(data);
-  //     });
-  // });
-
-  // const btnGoogle = viewSignIn.getElementById('buttonLoginGoogle');
-  // btnGoogle.addEventListener('click', () => {
-  //   signInGoogle()
-  //     .then(() => {
-  //       getDataUser(currentUser().uid)
-  //         .then((doc) => {
-  //           if (doc.exists) {
-  //             window.location.hash = '#/home';
-  //           } else {
-  //             sendDataCurrentUser(currentUser())
-  //               .then(() => {
-  //                 window.location.hash = '#/home';
-  //               });
-  //           }
-  //         });
-  //     });
-  // });
-
-
-
-
-
-
+  btnGoogle.addEventListener('click', (e) => {
+    e.preventDefault();
+    signInGoogle()
+      .then((result) => {
+        console.log(result);
+        console.log('hola');
+        window.location.hash = '#/Home';
+      })
+      .catch((err) => {
+        console.log(err);
+        window.location.hash = '';
+      });
+  });
 
   return viewSignIn;
 };
