@@ -1,7 +1,10 @@
-import { createUser,upDateUser, uploadFileUser } from '../lib/user/userService.js';
+import {
+  createUser,
+  upDateUser,
+  uploadFileUserImg,
+} from '../lib/user/userService.js';
 
 export default () => {
-
   const viewSignUp = document.createElement('div');
   viewSignUp.innerHTML = `
     
@@ -107,11 +110,11 @@ export default () => {
     // e.preventDefault();
     console.log('hola user');
     createUser(signUpEmail.value, signUpPassword.value)
-      .then((data) => {
-        console.log(data);
-        upDateUser(signUpFullname.value, signUpPhoto.value);
-        console.log(signUpPhoto.files[0]);
-        // uploadFileUser(signUpPhoto.files[0], signUpFullname.value);
+      .then(() => {
+        uploadFileUserImg(signUpPhoto.files[0]).then((urlImg) => {
+          upDateUser(signUpFullname.value, urlImg);
+        });
+
         window.location.hash = '#/Home';
       })
       .catch((error) => {
