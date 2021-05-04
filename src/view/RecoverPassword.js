@@ -9,7 +9,7 @@ export default () => {
       <div class="div-input">
       <input type="email" id="email" placeholder="E-mail" />
       </div>
-      <button type="submit" class="btn-recoverPass">Recover Password</button>
+      <button class="btn-recoverPass">Recover Password</button>
       <button class="backLogin">atras</button>
     </form>`;
   /* -----------------------handle back to Sign In--------------- */

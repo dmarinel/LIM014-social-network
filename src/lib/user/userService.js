@@ -46,14 +46,14 @@ export const uploadFileUser = (file) => {
         console.log('File available at', downloadURL);
       });
     })
-    .catch((error) => console.log(error))
+    .catch((error) => console.log(error));
 };
 
 // ************************** SIGN IN
 
 export const signIn = (email, password) => {
   const auth = firebase.auth();
-  return auth.sigInWithEmailAndPassword(email, password);
+  return auth.signInWithEmailAndPassword(email, password);
 };
 
 // Sign in with google

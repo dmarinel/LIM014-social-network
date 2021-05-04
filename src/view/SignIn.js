@@ -30,7 +30,7 @@ export default () => {
         />
       </div>
       <a class = "recoverPass" href="#/RecoverPassword">Did you forget your password?</a>
-      <a id="buttonLogin" class="" href="#/Home" > Login </a>
+      <button id="buttonLogin" class="" > Login </button>
       <p id = "errorMessage" class = "errorMessage"></p>
       <!-- <button id="buttonLoginFacebook" class=""  >
         Facebook
@@ -42,6 +42,23 @@ export default () => {
       <p class="">&copy; 2017–2021</p>
     </form>`;
   console.log('hola mundo  ');
+
+  const btnLogin = viewSignIn.querySelector('#buttonLogin');
+
+  btnLogin.addEventListener('click', (e) => {
+    e.preventDefault();
+    const email = document.querySelector('#signInEmail').value;
+    const password = document.querySelector('#signInPassword').value;
+    signIn(email, password)
+      .then((userCredential) => {
+        document.querySelector('#userSignInForm').reset();
+        window.location.hash = '#/Home';
+      })
+      .catch((err) => {
+        console.log(err);
+        window.location.hash = '';
+      });
+  });
 
   const btnGoogle = viewSignIn.querySelector('#buttonLoginGoogle');
 
