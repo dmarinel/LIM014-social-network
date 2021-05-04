@@ -1,7 +1,7 @@
 import {
   createUser,
   upDateUser,
-  uploadFileUser,
+  uploadFileUserImg,
 } from '../lib/user/userService.js';
 
 export default () => {
@@ -110,10 +110,11 @@ export default () => {
     // e.preventDefault();
     console.log('hola user');
     createUser(signUpEmail.value, signUpPassword.value)
-      .then((data) => {
-        console.log(data);
-        upDateUser(signUpFullname.value, signUpPhoto.value);
-        console.log(uploadFileUser(signUpPhoto.files[0]));
+      .then(() => {
+        uploadFileUserImg(signUpPhoto.files[0]).then((urlImg) => {
+          upDateUser(signUpFullname.value, urlImg);
+        });
+
         window.location.hash = '#/Home';
       })
       .catch((error) => {
