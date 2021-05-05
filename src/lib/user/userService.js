@@ -26,6 +26,9 @@ export const uploadFileUserImg = (file) => {
 
   return uploadTask;
 };
+
+
+
 // **************************
 const hearChanged = firebase.auth();
 hearChanged.onAuthStateChanged((user) => {
@@ -53,3 +56,5 @@ export const signInGoogle = () => {
 // ************************** SIGN out
 
 export const signOut = () => firebase.auth().signOut();
+
+export const currentUser = firebase.auth().currentUser;
