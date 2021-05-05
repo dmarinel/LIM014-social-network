@@ -68,6 +68,8 @@ export default () => {
       .then((result) => {
         console.log(result);
         console.log('hola');
+        const user = result.user;
+        console.log(user);
         window.location.hash = '#/Home';
       })
       .catch((err) => {

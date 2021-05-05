@@ -14,6 +14,8 @@ export default () => {
   </ul>
 </nav>
 `;
+  // *********************************************logOut
+
   const btnLogOut = viewHeader.querySelector('#btnLogOut');
 
   btnLogOut.addEventListener('click', (e) => {
@@ -30,3 +32,4 @@ export default () => {
 
   return viewHeader;
 };
+// ************ok
