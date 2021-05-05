@@ -1,5 +1,6 @@
 // aqui exportaras las funciones que necesites
 
+// ****** SIGN UP ********
 export const createUser = (email, password) => {
   const user = firebase.auth();
   return user.createUserWithEmailAndPassword(email, password);
@@ -20,7 +21,6 @@ export const uploadFileUserImg = (file) => {
   const uploadTask = storageRef
     .child(`imgUser/${file.name}`)
     .put(file, metadata)
-
     .then((snapshot) => snapshot.ref.getDownloadURL())
     .then((downloadURL) => downloadURL)
     .catch((error) => console.log(error));
@@ -28,16 +28,28 @@ export const uploadFileUserImg = (file) => {
   return uploadTask;
 };
 
-// ************************** SIGN IN
+const hearChanged = firebase.auth();
+hearChanged.onAuthStateChanged((user) => {
+  console.log(user);
+  if (user) {
+    console.log('sign in :3');
+  } else {
+    console.log('sign out :c');
+  }
+});
+
+// ******** SIGN IN *******
 
 export const signIn = (email, password) => {
   const auth = firebase.auth();
   return auth.signInWithEmailAndPassword(email, password);
 };
 
-// Sign in with google
+// ***** Sign in with google ******
 export const signInGoogle = () => {
   const auth = firebase.auth();
   const provider = new firebase.auth.GoogleAuthProvider();
   return auth.signInWithPopup(provider);
 };
+
+export const signOut = () => firebase.auth().signOut();
