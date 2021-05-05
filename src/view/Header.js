@@ -1,3 +1,5 @@
+import { signOut } from '../lib/user/userService.js';
+
 export default () => {
   const viewHeader = document.createElement('div');
   viewHeader.innerHTML = `
@@ -8,10 +10,23 @@ export default () => {
       <li class=""><a href="#/Profile"><i class=""></i>Profile</a></li>
     </div>
       <li class=""><a href="#/Home">Funk-okk</a></li>
-      <li id="" class=""><span id =""><i class=""></i> <a href="">Log out</a> </span></li>
+      <li id="" class=""><span id =""><i class=""></i> <button id="btnLogOut" >Log out</button> </span></li>
   </ul>
 </nav>
 `;
+  const btnLogOut = viewHeader.querySelector('#btnLogOut');
+
+  btnLogOut.addEventListener('click', (e) => {
+    e.preventDefault();
+    signOut()
+      .then(() => {
+        console.log('Cerrando sesión...');
+        window.location.hash = '';
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
 
   return viewHeader;
 };

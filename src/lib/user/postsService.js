@@ -1,7 +1,6 @@
-export const createPost = () => {
-    const saveInformation = document.getElementById('')
+export const createPost () => {}
 
+//Para agregar datos
+var db = firebase.firestore();
 
-    r
-    }
 

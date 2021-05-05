@@ -20,13 +20,21 @@ export const uploadFileUserImg = (file) => {
   const uploadTask = storageRef
     .child(`imgUser/${file.name}`)
     .put(file, metadata)
-
     .then((snapshot) => snapshot.ref.getDownloadURL())
     .then((downloadURL) => downloadURL)
     .catch((error) => console.log(error));
 
   return uploadTask;
 };
+// **************************
+const hearChanged = firebase.auth();
+hearChanged.onAuthStateChanged((user) => {
+  if (user) {
+    console.log('sign in :3');
+  } else {
+    console.log('sign out :c');
+  }
+});
 
 // ************************** SIGN IN
 
@@ -41,3 +49,7 @@ export const signInGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   return auth.signInWithPopup(provider);
 };
+
+// ************************** SIGN out
+
+export const signOut = () => firebase.auth().signOut();
