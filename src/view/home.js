@@ -31,8 +31,8 @@ export default () => {
     createPost(user.uid, user.displayName, descriptionPost.value)
       .then((docRef) => console.log('Document written with ID: ', docRef.id));
   });
-  console.log(renderPostUser());
-  renderPostUser();
+  // console.log(renderPostUser());
+  renderPostUser(viewHome);
   // console.log(renderPostUser());
   return viewHome;
 };
