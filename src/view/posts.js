@@ -1,9 +1,9 @@
 import { getPost } from '../lib/user/postsService.js';
 
-export const renderPostUser = () => {
+export const renderPostUser = (element) => {
   const postUser = document.createElement('div');
 
-  return getPost((postUser1) => {
+  getPost((postUser1) => {
     // console.log(postUser1);
     postUser1.forEach((doc) => {
       // postUser.innerHTML = '';
@@ -14,6 +14,8 @@ export const renderPostUser = () => {
       postUser.appendChild(postUnique);
     });
     console.log(postUser);
-    return postUser;
+    element.appendChild(postUser);
   });
+
+
 };
