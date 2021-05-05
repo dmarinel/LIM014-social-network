@@ -10,11 +10,21 @@ export const createPost = (uid, displayName, saveInformation) => {
   });
 };
 
-export const getPost = () => {
+export const getPost = (callback) => {
   const db = firebase.firestore();
-  return db.collection('posts').get();
+  // return db.collection('posts').get();
+  db.collection('posts').onSnapshot((querySnapshot) => {
+    // console.log(querySnapshot);
+    const post = [];
+    querySnapshot.forEach((doc) => {
+      post.push({
+        postUs: doc.data().posting,
+      });
+    });
+    console.log(post);
+    callback(post);
+  });
 };
-
 // --------FIRESTORE---------------
 
 // var db = firebase.firestore();
