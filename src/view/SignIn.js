@@ -11,18 +11,9 @@ export default () => {
       </figure>
       <section class="signIn-input">
         <label>Email</label>
-        <input
-          type="email"
-          id="signInEmail"
-          placeholder="name@example.com"
-        />
+        <input type="email" id="signInEmail" placeholder="name@example.com" />
         <label >Password</label>
-        <input
-          type="password"
-          id="signInPassword"
-          placeholder="*********"
-        />
-       
+        <input type="password" id="signInPassword" placeholder="*********"/>
       </section>
       <!-- <a class = "recoverPass" href="#/RecoverPassword">Did you forget your password?</a> -->
       
@@ -37,8 +28,7 @@ export default () => {
         <span>Don't have an Account?</span>
         <span><a id="buttonSignUp" class ="signIn-buttonSignUp" href="#/Register" > <b>Sign Up</b> </a></span>
       </section>
-      
-      
+
     </section>`;
   console.log('hola mundo  ');
 
