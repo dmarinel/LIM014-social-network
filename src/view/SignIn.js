@@ -3,44 +3,43 @@ import { signIn, signInGoogle } from '../lib/user/userService.js';
 export default () => {
   const viewSignIn = document.createElement('div');
   viewSignIn.innerHTML = `
-    <main id="formSignInUp">
-    <!-- S I G N  I N  F O R M -->
-    <form class="" id="userSignInForm"  >
-      <img
-        class=""
-        src=""
-        width="72"
-        height="57"
-      />
-      <h1 class="">Please sign in</h1>
-      <div class="">
-        <label>Email address</label>
+
+    <section class="container-signIn" >
+      <figure class="signIn-images">
+        <img src="img/logo.png" width="118" height="95"  alt="logo">
+        <img src="img/funkOok.png" width="136" height="50"  alt="">
+      </figure>
+      <section class="signIn-input">
+        <label>Email</label>
         <input
           type="email"
           id="signInEmail"
           placeholder="name@example.com"
         />
-      </div>
-      <div class="">
         <label >Password</label>
         <input
           type="password"
           id="signInPassword"
-          placeholder="Password"
+          placeholder="*********"
         />
-      </div>
-      <a class = "recoverPass" href="#/RecoverPassword">Did you forget your password?</a>
-      <button id="buttonLogin" class="" > Login </button>
-      <p id = "errorMessage" class = "errorMessage"></p>
-      <!-- <button id="buttonLoginFacebook" class=""  >
-        Facebook
-      </button> -->
-      <button id= "buttonLoginGoogle" class="" >
-        Google
-      </button>
-      <a id="buttonSignUp" class =" " href="#/Register" > Sign Up </a>
-      <p class="">&copy; 2017–2021</p>
-    </form>`;
+       
+      </section>
+      <!-- <a class = "recoverPass" href="#/RecoverPassword">Did you forget your password?</a> -->
+      
+      <button id="buttonLogin" class="btnLogin" > Login </button>
+      
+      <section class="signIn-google">
+        <p class="">-OR-</p>
+        <p class=""> <b>Sign in with</b></p>
+        <img src="img/googleIcon.png" width="39" height="40" class="button-google" id=   "buttonLoginGoogle"/>
+      </section>
+      <section class="signIn-dontAccount">
+        <span>Don't have an Account?</span>
+        <span><a id="buttonSignUp" class ="signIn-buttonSignUp" href="#/Register" > <b>Sign Up</b> </a></span>
+      </section>
+      
+      
+    </section>`;
   console.log('hola mundo  ');
 
   const btnLogin = viewSignIn.querySelector('#buttonLogin');
@@ -51,7 +50,7 @@ export default () => {
     const password = document.querySelector('#signInPassword').value;
     signIn(email, password)
       .then((userCredential) => {
-        document.querySelector('#userSignInForm').reset();
+        // document.querySelector('#userSignInForm').reset();
         window.location.hash = '#/Home';
       })
       .catch((err) => {

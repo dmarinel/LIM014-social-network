@@ -1,0 +1,22 @@
+    @import url('./variable.css');
+    @import url('./views/signIn.css');
+    
+    * {
+    margin:0;
+    box-sizing: border-box;
+    padding: 0;
+  
+    }
+    
+    html{
+        font-size: 16px;
+        
+    }
+
+    body{
+        font-family: var(--roboto);
+        background-color: var(--blue);
+        padding: 2.1rem;
+        
+
+    }

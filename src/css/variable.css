@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;600&family=Share+Tech&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+:root{
+    /* type of letter */
+    --share: 'Share Tech', sans-serif;
+    --arimo: 'Arimo', sans-serif;
+    --roboto: 'Roboto', sans-serif;
+
+    /* Type of colors */
+    --blue-radial: radial-gradient(50% 50% at 50% 50%, #FFFFFF 63.02%, rgba(255, 255, 255, 0) 100%), #2987CC;
+    --blue:#403386;
+    --blue-dark:#2C29CC;
+    --white: #FFFFFF;
+
+}
