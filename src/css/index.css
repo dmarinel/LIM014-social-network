@@ -1,5 +1,6 @@
     @import url('./variable.css');
-    @import url('./views/signIn.css');
+    @import url('./views/signInUp.css');
+    @import url('./views/header.css');
     
     * {
     margin:0;
@@ -15,8 +16,8 @@
 
     body{
         font-family: var(--roboto);
-        background-color: var(--blue);
+        background-image:  radial-gradient(50% 50% at 50% 50%, #FFFFFF 63.02%, rgba(255, 255, 255, 0) 100%),
+        linear-gradient(0deg, #2987CC, #2987CC);
+        ;
         padding: 2.1rem;
-        
-
     }

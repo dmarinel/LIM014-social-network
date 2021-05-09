@@ -24,6 +24,7 @@ export const getPost = (callback) => {
     console.log(post);
     callback(post);
   });
+  
 };
 
 // --------FIRESTORE---------------

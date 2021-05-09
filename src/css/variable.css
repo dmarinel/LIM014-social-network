@@ -9,7 +9,6 @@
     --roboto: 'Roboto', sans-serif;
 
     /* Type of colors */
-    --blue-radial: radial-gradient(50% 50% at 50% 50%, #FFFFFF 63.02%, rgba(255, 255, 255, 0) 100%), #2987CC;
     --blue:#403386;
     --blue-dark:#2C29CC;
     --white: #FFFFFF;
