@@ -24,8 +24,15 @@ export const getPost = (callback) => {
     console.log(post);
     callback(post);
   });
+  
 };
+
 // --------FIRESTORE---------------
+
+// export const deletePost = (id) => {
+//   const db = firebase.firestore();
+//   return db.collection('posts').doc(id).delete();
+// };
 
 // var db = firebase.firestore();
 // function guardar() {
@@ -75,3 +82,11 @@ db.collection("users").get().then((querySnapshot) => {
 
   });
 }); */
+
+/* export const deletePost = () => {
+  firebase.firestore().collection('posts').get().then(querySnapshot => {
+    querySnapshot.forEach(doc => {
+    console.log(firebase.firestore().collection('posts').doc(doc.id).delete())
+  })
+});
+} */

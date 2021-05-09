@@ -13,18 +13,8 @@ input, textarea {
     width: 100%;
     display: flex;
 
-}
-.wrap-signup{
-    width: 520px;
-    min-width: 100vh;
-    background: rgb(255, 255, 255);
-    border-radius: 2px;
-    position: relative;
-    padding: 42px 20px 0px 30px;
-}
-
-.signup-form {
-    width: 100px;
+inup-form {
+  width: 100px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

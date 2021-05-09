@@ -6,6 +6,7 @@ export default () => {
   <nav>
   <ul class="">
     <div id="" class= "">
+    <img src="img/funkOkkHeader.png" width="131" height="50"  alt="logo">
       <li class=""><a href="#/Home"><i class=""></i>Home</a></li>
       <li class=""><a href="#/Profile"><i class=""></i>Profile</a></li>
     </div>
