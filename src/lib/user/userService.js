@@ -40,15 +40,7 @@ hearChanged.onAuthStateChanged((user) => {
   }
 });
 
-const hearChanged = firebase.auth();
-hearChanged.onAuthStateChanged((user) => {
-  console.log(user);
-  if (user) {
-    console.log('sign in :3');
-  } else {
-    console.log('sign out :c');
-  }
-});
+
 
 // ******** SIGN IN *******
 
