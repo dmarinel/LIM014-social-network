@@ -7,71 +7,35 @@ import {
 export default () => {
   const viewSignUp = document.createElement('div');
   viewSignUp.innerHTML = `
-
-
-
-
-
-
-
-
-
-
-
-  
-  <div class="col-md-4">
-    <label for="validationCustom01"   class="form-label">Full Name</label>
-    <input type="text" class="form-control" id="signUpFullname" value="Mark" required />
-  </div>
-
-  <div class="col-md-4">
-    <label for="validationCustomUsername" class="form-label">Username</label>
-    <span class="input-group has-validation">
-      <span class="input-group-text" id="inputGroupPrepend">@</span>
-      <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" require />
-    </span>
-  </div>
-
-  <div class="form-floating">
-    <label for="floatingInput">Email address</label>
-    <input type="email" id="signUpEmail" placeholder="name@example.com" />
-  </div>
-
-  <div class="form-floating">
-    <label for="floatingPassword">Password</label>
-    <input type="password" id="signUpPassword" placeholder="Password" />
-  </div>
-
-  <div class="form-floating">
-    <label for="floatingPassword">Confirm Password</label>
-    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" />
-  </div>
-
-
-
-
-  <div>
-    <label for="validationCustomUsername">Chosse your photo</label>
-    <span>
+  <section class="container container-signUp"> 
+  <h1>Sign Up</h1>
+    <section class="signInUp-input signUp-input">
+      <label>Full Name</label>
+      <input type="text" id="signUpFullname" placeholder="Enter your Name" required />
+      <label>Email</label>
+      <input type="email" id="signUpEmail" placeholder="name@example.com" />
+      <label>Password</label>
+      <input type="password" id="signUpPassword" placeholder="Enter your Password" />
+      <label>Confirm Password</label>
+      <input type="password" id="floatingPassword" placeholder="Confirm Password" />
+      <label>Chosse your photo</label>
+      <span>
       <input type="file" id="signUpPhoto" aria-describedby="inputGroupPrepend" require />
-    </span>
-  </div>
-  
-  <div class="col-12">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" require/>
-      <label class="form-check-label" for="invalidCheck">Agree to terms and conditions</label>
-      <div class="invalid-feedback">
-        You must agree before submitting.
-      </div>
-    </div>
-  </div>
-  <div class="col-12">
-    <button class="btn btn-primary" id="buttonRegister"  >REGISTER</button>
-  </div>
-  <div class="col-12">
-    <a id="buttonSignIn" class="btn btn-primary" href="">Sign in</a>
-  </div>`;
+
+    </section>
+
+    <button class="buttonAllLogin" id="buttonRegister"  >REGISTER</button>
+    <section class="signIn-dontAccount">
+      <span>Have an Account?</span>
+      <span><a id="buttonSignIn" class="signInUp-buttonSignInUp" href="" > <b>Sign In</b> </a></span>
+    </section>
+  </section>
+
+
+
+
+
+  `;
 
   const signUpEmail = viewSignUp.querySelector('#signUpEmail');
   const signUpPassword = viewSignUp.querySelector('#signUpPassword');

@@ -1,15 +1,19 @@
-.container-signIn{
+.container{
     display:grid;
     height: 89vh;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 0.6fr 0.25fr 0.6fr 0.3fr;
     background-color: var(--white);
     justify-items: center;
     align-items: center;
     padding:0.5rem;
-    /* justify-items: stretch; */
     justify-self: stretch;
-    /* row-gap: 0.8rem; */
+}
+.container-signIn{
+    grid-template-rows: 1fr 0.6fr 0.25fr 0.6fr 0.3fr;
+}
+
+.container-signUp{
+    grid-template-rows: 0.6fr 1fr 0.6fr 0.25fr ;
 }
 
 .signIn-images{
@@ -20,17 +24,22 @@
     gap: 0.8rem;
 }
 /* inputs  */
-.signIn-input{
+.signInUp-input{
     display: flex;
     flex-direction: column;
+}
+.signIn-input{
     gap:0.3rem;
 }
-.signIn-input label {
+.signUp-input{
+    gap:1rem;
+}
+.signInUp-input label {
     font-size: 0.9rem;
     font-weight: 500;
 }
 
-.signIn-input input{
+.signInUp-input input{
     border: none;
     border-bottom: 1px solid rgb(95, 93, 93);
     outline: none;
@@ -47,17 +56,15 @@
 }
 .button-google{
     transform: translateY(-0.5px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.63);
     border-radius: 50px;
     cursor: pointer;
 }
 .button-google:active{
-    transform: translateY(-0.5px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 50px;
 }
 
-.btnLogin{
+.buttonAllLogin{
     background-color:var(--blue-dark);
     color:var(--white);
     width: 192px;
@@ -67,9 +74,7 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     cursor: pointer;
     font-size: 0.9rem;
-    /* font-family: var(--roboto); */
     font-weight: 500;
-    /* border-color: rgba(41, 135, 204, 1); */
 }
 
 
@@ -78,13 +83,16 @@
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     
 }
-.signIn-buttonSignUp{
+.signInUp-buttonSignInUp{
     text-decoration: none;
     color:black;
 }
-.signIn-buttonSignUp:hover{
-    color:black;
+.signInUp-buttonSignInUp:hover{
+  text-shadow: -0.5px 0px black;
 }
 
+h1{
+    font-size: 1.75rem;
+}
 
 

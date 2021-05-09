@@ -4,12 +4,12 @@ export default () => {
   const viewSignIn = document.createElement('div');
   viewSignIn.innerHTML = `
 
-    <section class="container-signIn" >
+    <section class="container container-signIn" >
       <figure class="signIn-images">
         <img src="img/logo.png" width="118" height="95"  alt="logo">
         <img src="img/funkOok.png" width="136" height="50"  alt="">
       </figure>
-      <section class="signIn-input">
+      <section class="signInUp-input signIn-input">
         <label>Email</label>
         <input type="email" id="signInEmail" placeholder="name@example.com" />
         <label >Password</label>
@@ -17,7 +17,7 @@ export default () => {
       </section>
       <!-- <a class = "recoverPass" href="#/RecoverPassword">Did you forget your password?</a> -->
       
-      <button id="buttonLogin" class="btnLogin" > Login </button>
+      <button id="buttonLogin" class="buttonAllLogin" > Login </button>
       
       <section class="signIn-google">
         <p class="">-OR-</p>
@@ -26,7 +26,7 @@ export default () => {
       </section>
       <section class="signIn-dontAccount">
         <span>Don't have an Account?</span>
-        <span><a id="buttonSignUp" class ="signIn-buttonSignUp" href="#/Register" > <b>Sign Up</b> </a></span>
+        <span><a id="buttonSignUp" class ="signInUp-buttonSignInUp" href="#/Register" > <b>Sign Up</b> </a></span>
       </section>
 
     </section>`;
