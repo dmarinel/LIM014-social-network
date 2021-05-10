@@ -40,8 +40,6 @@ hearChanged.onAuthStateChanged((user) => {
   }
 });
 
-
-
 // ******** SIGN IN *******
 
 export const signIn = (email, password) => {
