@@ -17,16 +17,21 @@ export const getPost = (callback) => {
     // console.log(querySnapshot);
     const post = [];
     querySnapshot.forEach((doc) => {
+      console.log(doc.id);
       post.push({
         postUs: doc.data().posting,
+        idPost: doc.id,
       });
     });
     console.log(post);
     callback(post);
   });
-  
 };
 
+export const deletePost = (id) => {
+  const db = firebase.firestore();
+  return db.collection('posts').doc(id).delete();
+};
 // --------FIRESTORE---------------
 
 // export const deletePost = (id) => {
