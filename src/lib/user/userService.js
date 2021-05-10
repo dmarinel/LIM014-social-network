@@ -1,5 +1,6 @@
 // aqui exportaras las funciones que necesites
 
+// ****** SIGN UP ********
 export const createUser = (email, password) => {
   const user = firebase.auth();
   return user.createUserWithEmailAndPassword(email, password);
@@ -39,19 +40,20 @@ hearChanged.onAuthStateChanged((user) => {
   }
 });
 
-// ************************** SIGN IN
+// ******** SIGN IN *******
 
 export const signIn = (email, password) => {
   const auth = firebase.auth();
   return auth.signInWithEmailAndPassword(email, password);
 };
 
-// Sign in with google
+// ***** Sign in with google ******
 export const signInGoogle = () => {
   const auth = firebase.auth();
   const provider = new firebase.auth.GoogleAuthProvider();
   return auth.signInWithPopup(provider);
 };
+
 
 // ************************** SIGN out
 
