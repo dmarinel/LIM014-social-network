@@ -1,6 +1,8 @@
     @import url('./variable.css');
     @import url('./views/signInUp.css');
     @import url('./views/header.css');
+    @import url('./views/home.css');
+    @import url('./views/posts.css');
     
     * {
     margin:0;
@@ -16,8 +18,16 @@
 
     body{
         font-family: var(--roboto);
-        background-image:  radial-gradient(50% 50% at 50% 50%, #FFFFFF 63.02%, rgba(255, 255, 255, 0) 100%),
-        linear-gradient(0deg, #2987CC, #2987CC);
+        /* background-image:  radial-gradient(50% 50% at 50% 50%, #FFFFFF 63.02%, rgba(255, 255, 255, 0) 100%),
+        linear-gradient(0deg, #2987CC, #2987CC); */
+        background-color: var(--light-blue)
         ;
-        padding: 2.1rem;
+        /* padding: 2.1rem; */
     }
+    a{
+        text-decoration: none;
+        
+        color: var(--black);
+
+    }
+

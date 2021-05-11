@@ -17,13 +17,13 @@ export const getPost = (callback) => {
     // console.log(querySnapshot);
     const post = [];
     querySnapshot.forEach((doc) => {
-      console.log(doc.id);
+      // console.log(doc.id);
       post.push({
         postUs: doc.data().posting,
         idPost: doc.id,
       });
     });
-    console.log(post);
+    // console.log(post);
     callback(post);
   });
 };
@@ -32,6 +32,10 @@ export const deletePost = (id) => {
   const db = firebase.firestore();
   return db.collection('posts').doc(id).delete();
 };
+
+export const editPost = (id, textPost) => firebase.firestore().collection('posts').doc(id).update({
+  posting: textPost,
+});
 // --------FIRESTORE---------------
 
 // export const deletePost = (id) => {

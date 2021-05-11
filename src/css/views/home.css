@@ -1,0 +1,100 @@
+.allContainer {
+    display:grid;
+    /* gap: 1.6rem; */
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr;
+    height: 560;
+}
+
+.allContainer > section {
+  
+    background-color: var(--white);
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 0; 
+
+}
+.allContainer > header {
+    background-color: var(--light-blue);
+    /* grid-column: 1/2; */
+
+}
+
+.containerHome{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+.dotOnline{
+    font-size: 3rem;
+    color:green;
+}
+aside.userPrincipal{
+    /* display: grid;
+    grid-template-columns: 1fr 1fr;    */
+    display:flex;
+    
+    justify-content: center;
+    align-items: center;
+
+    /* box-sh0adow: 0 3px 10px rgb(0 0 0 / 36%); */
+}
+/* aside > .status{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+
+} */
+aside > .photoProfile{
+    width:4.25rem ;
+    height: 4.25rem;
+    border: 1px solid rgba(0, 0, 0, 0.281);
+    border-radius: 50px;
+    margin: 1rem;
+   
+}
+
+.userAndStatus > h3 {
+    text-align:initial;
+    font-size: 1.1rem;
+}
+
+.status > span {
+    font-size: 0.79rem;
+    font-weight:300;
+}
+
+div.createPost{
+   box-shadow: 0 3px 10px rgb(0 0 0 / 36%);
+   width: 296px;
+   height: 100px;
+   border-radius: 5px;
+   /* text-align: center;
+    border-radius: 5px;
+    /* width: 18.5rem;
+    height: 8.1rem;  */
+    display:flex;
+    justify-content: center;
+    align-items: center; 
+}
+.descriptionPost{
+    text-align: justify;
+    width: 261px;
+    height: 60px;
+    resize: none;
+    outline:none;
+    background-color: rgba(44, 171, 146, 0.1);
+    border-color: rgba(44, 171, 146, 0.15);
+    border-radius: 5px;
+
+}
+
+.optionSeccion{
+
+}
+
+denisseeeee noo tiene internettttttttttttttttttttttttttttt :c 
+</3

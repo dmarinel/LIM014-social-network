@@ -1,7 +1,7 @@
 export default () => {
-  const viewProfile = document.createElement('div');
+  const viewProfile = document.createElement('section');
   viewProfile.innerHTML = `
-        <header>actualizacion de perfil </header>`;
+        <h2>actualizacion de perfil </h2>`;
 
   return viewProfile;
 };
