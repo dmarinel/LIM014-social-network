@@ -30,11 +30,6 @@ export default () => {
       <span><a id="buttonSignIn" class="signInUp-buttonSignInUp" href="" > <b>Sign In</b> </a></span>
     </section>
   </section>
-
-
-
-
-
   `;
 
   const signUpEmail = viewSignUp.querySelector('#signUpEmail');
