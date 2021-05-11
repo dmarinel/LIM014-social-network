@@ -38,7 +38,7 @@ export const getPostById = (id) => {
   return db.collection('posts').doc(id).get();
 };
 
-export const updatePost = (id, updatedPost) =>{
+export const updatePost = (id, updatedPost) => {
   const db = firebase.firestore();
   return db.collection('posts').doc(id).update(updatedPost);
-}
+};

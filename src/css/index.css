@@ -1,6 +1,7 @@
     @import url('./variable.css');
     @import url('./views/signInUp.css');
     @import url('./views/header.css');
+    @import url('./views/modalPost.css');
     
     * {
     margin:0;
