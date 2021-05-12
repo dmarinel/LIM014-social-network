@@ -19,7 +19,7 @@ export default (dataCurrentUser) => {
         <div class="createPost">
           <form action="">
             <textarea id="descriptionPost" class="descriptionPost" placeholder="¿Qué estás pensando?" spellcheck = "false" required></textarea>
-
+            <input type="file">
             <div class="optionSeccion">
               
 

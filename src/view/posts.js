@@ -29,7 +29,7 @@ export const renderPostUser = (element) => {
                 <img src="img/deleteButton.PNG" width="20" height="20" class="btnPostDelete" data-id=${doc.idPost}></img>
             </div>
             </div>
-            <p id="formPostShare" spellcheck = "false" required>${doc.postUs}</p>
+            <p id="formPostShare" class="formPostShare" spellcheck = "false" required>${doc.postUs}</p>
             <img  >
             <div class="likesAndComments">
               <p>3 likes</p>

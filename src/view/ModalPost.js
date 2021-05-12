@@ -3,17 +3,19 @@ export const renderModalPost = (data) => {
   const modalEditPost = document.createElement('div');
   modalEditPost.classList.add('modal-content');
   modalEditPost.innerHTML = `
-      
-        <span class="close">&times;</span>
-        <section>
-          <img src="" alt="">
-          <p>Nombre de usuario</p>
-          <textarea id="inputPost" type="text">${data.posting}</textarea>
-        </section>
-        <section>
+      <section class="editPostClose">
+      <span >Edit post</span>
+      <span class="close">&times;</span>
+      </section>
+      <section class="dataUser">
+        <img class="photoProfile" src="img/googleIcon.png" width="26" height="26"/>
+        <span>Denisse Montalvo</span>
+      </section>
+      <textarea id="inputPost" class="userEditPost" type="text">${data.posting}</textarea>  
+        <section class="editPostImagen">
           <input type="file">
         </section>
-        <button id="btnPostUpdate">Update</button>
+        <button id="btnPostUpdate" class="btnPostUpdate">Update</button>
     
       `;
   return modalEditPost;
