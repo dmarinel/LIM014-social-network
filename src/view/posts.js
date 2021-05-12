@@ -1,7 +1,13 @@
-import { getPost, deletePost } from '../lib/user/postsService.js';
+import {
+  getPost, deletePost, getPostById, updatePost,
+} from '../lib/user/postsService.js';
+import { renderModalPost } from './ModalPost.js';
 
 export const renderPostUser = (element) => {
   const postUser = document.createElement('section');
+  const modal = document.createElement('div');
+  modal.classList.add('modal');
+  modal.setAttribute('id', 'myModal');
 
   getPost((postUser1) => {
     // console.log(postUser1);
@@ -19,7 +25,7 @@ export const renderPostUser = (element) => {
                 <span>Denisse Montalvo</span>
               </section>
               <div class="editByOwner">
-                <img src="img/editButton.PNG" width="20" height="20" class="btnPostEdit"></img>
+                <img src="img/editButton.PNG" width="20" height="20" class="btnPostEdit" data-id=${doc.idPost}></img>
                 <img src="img/deleteButton.PNG" width="20" height="20" class="btnPostDelete" data-id=${doc.idPost}></img>
             </div>
             </div>
@@ -38,18 +44,36 @@ export const renderPostUser = (element) => {
       postUser.appendChild(postUnique);
       postUser.appendChild(postUnique);
     });
-
-    postUser.querySelectorAll('.btnPostDelete').forEach((formPostDelete) => formPostDelete.addEventListener('click', (e) => {
+    postUser.querySelectorAll('.btnPostDelete').forEach((btnPostDelete) => btnPostDelete.addEventListener('click', (e) => {
       const idPost = e.target.dataset.id;
-      console.log(e.target.tagName);
-      console.log(e.target.parentElement);
-      console.log(e.target.dataset.id);
-      console.log('me borro');
       deletePost(idPost).then(() => console.log('elemento eliminado'));
     }));
 
-    postUser.querySelectorAll('.btnPostEdit').forEach((formPostEdit) => formPostEdit.addEventListener('click', () => {
-      console.log('me edito');
+    postUser.querySelectorAll('.btnPostEdit').forEach((btnPostEdit) => btnPostEdit.addEventListener('click', (e) => {
+      const idPost = e.target.dataset.id;
+      getPostById(idPost)
+        .then((infoId) => infoId.data())
+        .then((data) => {
+          modal.innerHTML = '';
+          const modalContent = renderModalPost(data, idPost);
+          const btnClose = modalContent.querySelector('.close');
+          const btnUpdate = modalContent.querySelector('#btnPostUpdate');
+          btnClose.addEventListener('click', () => {
+            console.log('hola');
+            modal.style.display = 'none';
+          });
+          btnUpdate.addEventListener('click', () => {
+            console.log('hola');
+            const inputPost = modalContent.querySelector('#inputPost');
+            updatePost(idPost, {
+              posting: inputPost.value,
+            });
+            modal.style.display = 'none';
+          });
+          modal.appendChild(modalContent);
+          element.appendChild(modal);
+          modal.style.display = 'block';
+        });
     }));
 
     // console.log(postUser);

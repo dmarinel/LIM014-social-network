@@ -28,10 +28,7 @@
     align-items: center;
    
 }
-.dotOnline{
-    font-size: 3rem;
-    color:green;
-}
+
 aside.userPrincipal{
     /* display: grid;
     grid-template-columns: 1fr 1fr;    */
