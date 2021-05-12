@@ -35,7 +35,7 @@ export const renderPostUser = (element) => {
         .then((infoId) => infoId.data())
         .then((data) => {
           modal.innerHTML = '';
-          const modalContent = renderModalPost(data, idPost);
+          const modalContent = renderModalPost(data);
           const btnClose = modalContent.querySelector('.close');
           const btnUpdate = modalContent.querySelector('#btnPostUpdate');
           btnClose.addEventListener('click', () => {
