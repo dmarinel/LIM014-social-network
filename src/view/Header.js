@@ -1,23 +1,26 @@
 import { signOut } from '../lib/user/userService.js';
 
 export default () => {
-  const viewHeader = document.createElement('div');
+  const viewHeader = document.createElement('header');
   viewHeader.innerHTML = `
-  <nav>
-  <ul class="">
-    <div id="" class= "">
-    <img src="img/funkOkkHeader.png" width="131" height="50"  alt="logo">
-      <li class=""><a href="#/Home"><i class=""></i>Home</a></li>
-      <li class=""><a href="#/Profile"><i class=""></i>Profile</a></li>
-    </div>
-      <li class=""><a href="#/Home">Funk-okk</a></li>
-      <li id="" class=""><span id =""><i class=""></i> <button id="btnLogOut" >Log out</button> </span></li>
-  </ul>
-</nav>
+    <a href="#/Home"><img src="img/funkOkkHeader.png" width="131" height="50"  alt="logo"></a>
+    <button id="hamburger" class="hamburger">
+      <i class="fa fa-bars"></i>
+    </button>
+    <ul class="menuList" id="menuList">
+        <li class=""><a href="#/Home"><i class=""></i>Home</a></li>
+        <li class=""><a href="#/Profile"><i class=""></i>Profile</a></li>
+        <li id="" class=""><span id =""><i class=""></i> <button id="btnLogOut" class="btnLogOut" >Log out</button></li>
+    </ul>
 `;
   // *********************************************logOut
 
   const btnLogOut = viewHeader.querySelector('#btnLogOut');
+  const hamburger = viewHeader.querySelector('#hamburger');
+  const menuList = viewHeader.querySelector('#menuList');
+  hamburger.addEventListener('click', () => {
+    menuList.classList.toggle('show');
+  });
 
   btnLogOut.addEventListener('click', (e) => {
     e.preventDefault();

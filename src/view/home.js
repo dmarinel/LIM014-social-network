@@ -1,24 +1,36 @@
 import { createPost } from '../lib/user/postsService.js';
 import { renderPostUser } from './posts.js';
 
-export default () => {
-  const viewHome = document.createElement('div');
+export default (dataCurrentUser) => {
+  const viewHome = document.createElement('section');
+  viewHome.classList.add('containerHome');
+  // const usernameId = firebase.auth().currentUser.uid;
   viewHome.innerHTML = `
-      <div class="containerPost">
-      <div class="boxPost">
-        <form action="">
-          <textarea id="descriptionPost" placeholder="¿Qué estás pensando?" spellcheck = "false" required></textarea>
-        </form> 
-      </div>
-    </div>
+        <aside class="userPrincipal">
+          <img class="photoProfile" src="img/googleIcon.png"/>
+          <div class="userAndStatus">
+            <h3>Mar Suarez</h3>
+            <div class="status">
+              <img  src="img/greenDot.png"/>
+              <span>pepito@gmail.com</span>
+            </div>
+          </div>
+        </aside>
+        <div class="createPost">
+          <form action="">
+            <textarea id="descriptionPost" class="descriptionPost" placeholder="¿Qué estás pensando?" spellcheck = "false" required></textarea>
 
-    <div class="optionSeccion">
-      <select id="privacy-option">
-        <option value="public" title = "Public">Public</option>
-        <option value="private" title = "Private">Private</option>
-      </select>
-      <button  id="btnPost" >Publicar</button>
-    </div>
+            <div class="optionSeccion">
+              
+
+              <select id="privacy-option">
+                <option value="public" title = "Public">Public</option>
+                <option value="private" title = "Private">Private</option>
+              </select>
+              <button  id="btnPost" >Publicar</button>
+            </div>
+          </form>
+        </div>
       
        `;
   const btnPost = viewHome.querySelector('#btnPost');

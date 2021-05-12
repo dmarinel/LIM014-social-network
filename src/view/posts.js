@@ -4,7 +4,7 @@ import {
 import { renderModalPost } from './ModalPost.js';
 
 export const renderPostUser = (element) => {
-  const postUser = document.createElement('div');
+  const postUser = document.createElement('section');
   const modal = document.createElement('div');
   modal.classList.add('modal');
   modal.setAttribute('id', 'myModal');
@@ -14,14 +14,34 @@ export const renderPostUser = (element) => {
     postUser.innerHTML = '';
     postUser1.forEach((doc) => {
       // postUser.innerHTML = '';
-      console.log(doc.postUs);
+      // console.log(doc.postUs);
       // console.log(doc.idPost);
-      const postUnique = document.createElement('div');
+      const postUnique = document.createElement('article');
+      postUnique.classList.add('postsAllUsers');
       postUnique.innerHTML = `
+            <div class="userInformation">
+              <section>
+                <img class="photoProfile" src="img/googleIcon.png" width="26" height="26"/>
+                <span>Denisse Montalvo</span>
+              </section>
+              <div class="editByOwner">
+                <img src="img/editButton.PNG" width="20" height="20" class="btnPostEdit" data-id=${doc.idPost}></img>
+                <img src="img/deleteButton.PNG" width="20" height="20" class="btnPostDelete" data-id=${doc.idPost}></img>
+            </div>
+            </div>
             <p id="formPostShare" spellcheck = "false" required>${doc.postUs}</p>
-            <button class="btnPostEdit" data-id=${doc.idPost} >edit</button>
-            <button class="btnPostDelete" data-id=${doc.idPost}>delete</button>
+            <img  >
+            <div class="likesAndComments">
+              <p>3 likes</p>
+              <p>4 comments</p>
+            </div>
+            <div class="buttonLikeComment">
+            <img src="img/likeButton.PNG" width="18.6" height="18" class="buttonLikePost" id="buttonLikePost"/>
+            <button class="buttonCommentPost">Comment</button>
+            </div>
+
             `;
+      postUser.appendChild(postUnique);
       postUser.appendChild(postUnique);
     });
     postUser.querySelectorAll('.btnPostDelete').forEach((btnPostDelete) => btnPostDelete.addEventListener('click', (e) => {
@@ -56,7 +76,7 @@ export const renderPostUser = (element) => {
         });
     }));
 
-    console.log(postUser);
+    // console.log(postUser);
 
     element.appendChild(postUser);
   });

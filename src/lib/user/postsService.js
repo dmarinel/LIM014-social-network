@@ -17,13 +17,13 @@ export const getPost = (callback) => {
     // console.log(querySnapshot);
     const post = [];
     querySnapshot.forEach((doc) => {
-      console.log(doc.id);
+      // console.log(doc.id);
       post.push({
         postUs: doc.data().posting,
         idPost: doc.id,
       });
     });
-    console.log(post);
+    // console.log(post);
     callback(post);
   });
 };
