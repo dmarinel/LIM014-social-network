@@ -3,6 +3,7 @@
     @import url('./views/header.css');
     @import url('./views/home.css');
     @import url('./views/posts.css');
+    @import url('./views/modalPost.css');
     
     * {
     margin:0;

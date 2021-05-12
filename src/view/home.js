@@ -3,7 +3,7 @@ import { renderPostUser } from './posts.js';
 
 export default (dataCurrentUser) => {
   const viewHome = document.createElement('section');
-  viewHome.classList.add("containerHome");
+  viewHome.classList.add('containerHome');
   // const usernameId = firebase.auth().currentUser.uid;
   viewHome.innerHTML = `
         <aside class="userPrincipal">
@@ -11,7 +11,7 @@ export default (dataCurrentUser) => {
           <div class="userAndStatus">
             <h3>Mar Suarez</h3>
             <div class="status">
-              <img class="dot" src="img/greenDot.png"/>
+              <img  src="img/greenDot.png"/>
               <span>pepito@gmail.com</span>
             </div>
           </div>
