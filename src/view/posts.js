@@ -13,7 +13,6 @@ export const renderPostUser = (element) => {
     // console.log(postUser1);
     postUser.innerHTML = '';
     postUser1.forEach((doc) => {
-      // postUser.innerHTML = '';
       // console.log(doc.postUs);
       // console.log(doc.idPost);
       const postUnique = document.createElement('article');
@@ -27,19 +26,18 @@ export const renderPostUser = (element) => {
               <div class="editByOwner">
                 <img src="img/editButton.PNG" width="20" height="20" class="btnPostEdit" data-id=${doc.idPost}></img>
                 <img src="img/deleteButton.PNG" width="20" height="20" class="btnPostDelete" data-id=${doc.idPost}></img>
-            </div>
-            </div>
-            <p id="formPostShare" spellcheck = "false" required>${doc.postUs}</p>
-            <img  >
-            <div class="likesAndComments">
-              <p>3 likes</p>
-              <p>4 comments</p>
-            </div>
-            <div class="buttonLikeComment">
-            <img src="img/likeButton.PNG" width="18.6" height="18" class="buttonLikePost" id="buttonLikePost"/>
-            <button class="buttonCommentPost">Comment</button>
-            </div>
-
+              </div>
+              </div>
+                <p id="formPostShare" spellcheck = "false"  required>${doc.postUs}</p>
+                <img  >
+              <div class="likesAndComments">
+                <p>3 likes</p>
+                <p>4 comments</p>
+              </div>
+              <div class="buttonLikeComment">
+              <img src="img/likeButton.PNG" width="18.6" height="18" class="buttonLikePost"   id="buttonLikePost"/>
+              <button class="buttonCommentPost">Comment</button>
+              </div>
             `;
       postUser.appendChild(postUnique);
       postUser.appendChild(postUnique);

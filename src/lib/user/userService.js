@@ -28,8 +28,6 @@ export const uploadFileUserImg = (file) => {
   return uploadTask;
 };
 
-
-
 // **************************
 const hearChanged = firebase.auth();
 hearChanged.onAuthStateChanged((user) => {
