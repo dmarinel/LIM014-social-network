@@ -1,5 +1,6 @@
 import { createPost } from '../lib/user/postsService.js';
 import { renderPostUser } from './posts.js';
+// import { userCurrentUser } from '../lib/user/userService.js';
 
 export default (dataCurrentUser) => {
   const viewHome = document.createElement('section');
@@ -9,17 +10,21 @@ export default (dataCurrentUser) => {
         <aside class="userPrincipal">
           <img class="photoProfile" src="img/googleIcon.png"/>
           <div class="userAndStatus">
-            <h3>Mar Suarez</h3>
+            <h3 >
+            
+            pepe</h3>
             <div class="status">
               <img  src="img/greenDot.png"/>
-              <span>pepito@gmail.com</span>
+              <span>
+             
+              :c</span>
             </div>
           </div>
         </aside>
         <div class="createPost">
-          <form action="">
+          <form action="" id="iNeed">
             <textarea id="descriptionPost" class="descriptionPost" placeholder="¿Qué estás pensando?" spellcheck = "false" required></textarea>
-            <input type="file">
+            <input type="file" class="inputFile">
             <div class="optionSeccion">
               
 
@@ -33,16 +38,21 @@ export default (dataCurrentUser) => {
         </div>
       
        `;
+
   const btnPost = viewHome.querySelector('#btnPost');
   const descriptionPost = viewHome.querySelector('#descriptionPost');
 
   btnPost.addEventListener('click', (e) => {
     e.preventDefault();
+  
     const user = firebase.auth().currentUser;
     console.log(user);
     createPost(user.uid, user.displayName, descriptionPost.value)
       .then((docRef) => console.log('Document written with ID: ', docRef.id));
+    viewHome.querySelector('.descriptionPost').value = '';
+    viewHome.querySelector('.inputFile').value = '';
   });
+
   // console.log(renderPostUser());
   renderPostUser(viewHome);
   // console.log(renderPostUser());

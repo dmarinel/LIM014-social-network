@@ -13,19 +13,20 @@ export const createPost = (uid, displayName, saveInformation) => {
 export const getPost = (callback) => {
   const db = firebase.firestore();
   // return db.collection('posts').get();
-  db.collection('posts').onSnapshot((querySnapshot) => {
+  db.collection('posts')
+    .orderBy('date', 'desc').onSnapshot((querySnapshot) => {
     // console.log(querySnapshot);
-    const post = [];
-    querySnapshot.forEach((doc) => {
+      const post = [];
+      querySnapshot.forEach((doc) => {
       // console.log(doc.id);
-      post.push({
-        postUs: doc.data().posting,
-        idPost: doc.id,
+        post.push({
+          postUs: doc.data().posting,
+          idPost: doc.id,
+        });
       });
+      // console.log(post);
+      callback(post);
     });
-    // console.log(post);
-    callback(post);
-  });
 };
 
 export const deletePost = (id) => {
