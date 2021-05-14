@@ -13,7 +13,6 @@ export const renderPostUser = (element) => {
     // console.log(postUser1);
     postUser.innerHTML = '';
     postUser1.forEach((doc) => {
-      // postUser.innerHTML = '';
       // console.log(doc.postUs);
       // console.log(doc.idPost);
       const postUnique = document.createElement('article');
@@ -56,7 +55,7 @@ export const renderPostUser = (element) => {
         .then((infoId) => infoId.data())
         .then((data) => {
           modal.innerHTML = '';
-          const modalContent = renderModalPost(data, idPost);
+          const modalContent = renderModalPost(data);
           const btnClose = modalContent.querySelector('.close');
           const btnUpdate = modalContent.querySelector('#btnPostUpdate');
           btnClose.addEventListener('click', () => {

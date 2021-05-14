@@ -1,7 +1,7 @@
 export const renderModalPost = (data) => {
   console.log(data.posting);
-  const modalEditPost = document.createElement('div');
-  modalEditPost.classList.add('modal-content');
+  const modalEditPost = document.createElement("div");
+  modalEditPost.classList.add("modal-content");
   modalEditPost.innerHTML = `
       <section class="editPostClose">
       <span >Edit post</span>
