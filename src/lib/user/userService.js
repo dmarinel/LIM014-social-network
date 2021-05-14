@@ -29,9 +29,13 @@ export const uploadFileUserImg = (file) => {
 };
 
 // **************************
+
 const hearChanged = firebase.auth();
 hearChanged.onAuthStateChanged((user) => {
   if (user) {
+    console.log(user.displayName);
+    console.log(user.photoURL);
+    console.log(user.email);
     console.log('sign in :3');
   } else {
     console.log('sign out :c');
@@ -52,9 +56,7 @@ export const signInGoogle = () => {
   return auth.signInWithPopup(provider);
 };
 
-
 // ************************** SIGN out
 
 export const signOut = () => firebase.auth().signOut();
 
-export const currentUser = firebase.auth().currentUser;

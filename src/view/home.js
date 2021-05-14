@@ -1,45 +1,44 @@
 import { createPost, createUrlImgPost } from '../lib/user/postsService.js';
 import { renderPostUser } from './posts.js';
+// import { userCurrentUser } from '../lib/user/userService.js';
 
 export default () => {
   const viewHome = document.createElement('section');
   viewHome.classList.add('containerHome');
   // const usernameId = firebase.auth().currentUser.uid;
   viewHome.innerHTML = `
-  <aside class="userPrincipal">
-  <img class="photoProfile" src="img/googleIcon.png" />
-  <div class="userAndStatus">
-    <h3>Mar Suarez</h3>
-    <div class="status">
-      <img src="img/greenDot.png" />
-      <span>pepito@gmail.com</span>
-    </div>
-  </div>
-</aside>
-<div class="createPost">
-  <form action="">
-    <textarea
-      id="descriptionPost"
-      class="descriptionPost"
-      placeholder="¿Qué estás pensando?"
-      spellcheck="false"
-      required
-    ></textarea>
-    <div class="optionSeccion">
-      <select id="privacy-option">
-        <option value="public" title="Public">Public</option>
-        <option value="private" title="Private">Private</option>
-      </select>
-      <section>
-        <input type="file" id="postPhoto" class="inputFile" />
-        <button id="btnPost">Publicar</button>
-      </section>
-    </div>
-  </form>
-</div>
+        <aside class="userPrincipal">
+          <img class="photoProfile" src="img/googleIcon.png"/>
+          <div class="userAndStatus">
+            <h3 >
+            
+            pepe</h3>
+            <div class="status">
+              <img  src="img/greenDot.png"/>
+              <span>
+             
+              :c</span>
+            </div>
+          </div>
+        </aside>
+        <div class="createPost">
+          <form action="" id="iNeed">
+            <textarea id="descriptionPost" class="descriptionPost" placeholder="¿Qué estás pensando?" spellcheck = "false" required></textarea>
+            <input type="file" class="inputFile">
+            <div class="optionSeccion">
+              
 
+              <select id="privacy-option">
+                <option value="public" title = "Public">Public</option>
+                <option value="private" title = "Private">Private</option>
+              </select>
+              <button  id="btnPost" >Publicar</button>
+            </div>
+          </form>
+        </div>
       
        `;
+
   const btnPost = viewHome.querySelector('#btnPost');
   const descriptionPost = viewHome.querySelector('#descriptionPost');
   const postPhoto = viewHome.querySelector('#postPhoto');
