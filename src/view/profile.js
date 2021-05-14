@@ -1,7 +1,21 @@
+import { hearSign } from '../lib/user/userService.js';
+
 export default () => {
   const viewProfile = document.createElement('section');
   viewProfile.innerHTML = `
-        <h2>actualizacion de perfil </h2>`;
+        <div class="profile"> 
+        
+        </div>`;
+
+  const profile = viewProfile.querySelector('.profile');
+  hearSign((user) => {
+    const html = `<img class="photoProfile" src="${user.photoURL}"/>
+    <div class="userAndStatus">
+      <h2>${user.displayName}</h2>
+      <p>${user.email}</p>
+    </div>`;
+    profile.innerHTML = html;
+  });
 
   return viewProfile;
 };

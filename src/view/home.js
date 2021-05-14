@@ -1,28 +1,18 @@
 import { createPost } from '../lib/user/postsService.js';
+import { hearSign } from '../lib/user/userService.js';
+// import { hearSign } from '../lib/user/userService.js';
 import { renderPostUser } from './posts.js';
-// import { userCurrentUser } from '../lib/user/userService.js';
 
-export default (dataCurrentUser) => {
+export default (user) => {
   const viewHome = document.createElement('section');
   viewHome.classList.add('containerHome');
   // const usernameId = firebase.auth().currentUser.uid;
   viewHome.innerHTML = `
         <aside class="userPrincipal">
-          <img class="photoProfile" src="img/googleIcon.png"/>
-          <div class="userAndStatus">
-            <h3 >
-            
-            pepe</h3>
-            <div class="status">
-              <img  src="img/greenDot.png"/>
-              <span>
-             
-              :c</span>
-            </div>
-          </div>
+         
         </aside>
         <div class="createPost">
-          <form action="" id="iNeed">
+          <form action="" >
             <textarea id="descriptionPost" class="descriptionPost" placeholder="¿Qué estás pensando?" spellcheck = "false" required></textarea>
             <input type="file" class="inputFile">
             <div class="optionSeccion">
@@ -38,19 +28,30 @@ export default (dataCurrentUser) => {
         </div>
       
        `;
-
+  // console.log(hearSign(user));
   const btnPost = viewHome.querySelector('#btnPost');
   const descriptionPost = viewHome.querySelector('#descriptionPost');
+  const userPrincipal = viewHome.querySelector('.userPrincipal');
+
+  hearSign((user) => {
+    const html = `<img class="photoProfile" src="${user.photoURL}"/>
+        <div class="userAndStatus">
+          <h3 >${user.displayName}</h3>
+          <div class="status">
+            <img  src="img/greenDot.png"/>
+            <span>${user.email}</span>
+          </div>
+        </div>`;
+    userPrincipal.innerHTML = html;
+  });
 
   btnPost.addEventListener('click', (e) => {
     e.preventDefault();
-  
     const user = firebase.auth().currentUser;
     console.log(user);
     createPost(user.uid, user.displayName, descriptionPost.value)
       .then((docRef) => console.log('Document written with ID: ', docRef.id));
-    viewHome.querySelector('.descriptionPost').value = '';
-    viewHome.querySelector('.inputFile').value = '';
+    viewHome.querySelector('.descriptionPost, .inputFile').value = '';
   });
 
   // console.log(renderPostUser());

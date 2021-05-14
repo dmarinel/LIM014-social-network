@@ -19,8 +19,9 @@ export const renderPostUser = (element) => {
       const postUnique = document.createElement('article');
       postUnique.classList.add('postsAllUsers');
       postUnique.innerHTML = `
+      
             <div class="userInformation">
-              <section>
+              <section >
                 <img class="photoProfile" src="img/googleIcon.png" width="26" height="26"/>
                 <span>Denisse Montalvo</span>
               </section>
