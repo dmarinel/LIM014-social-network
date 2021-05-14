@@ -75,6 +75,7 @@ div.createPost{
     display:flex;
     justify-content: center;
     align-items: center; 
+    padding: 5px;
 }
 .descriptionPost{
     text-align: justify;
@@ -114,5 +115,4 @@ div.createPost{
 form > input{
     padding: 10px;
 }
-denisseeeee noo tiene internettttttttttttttttttttttttttttt :c 
-</3
+

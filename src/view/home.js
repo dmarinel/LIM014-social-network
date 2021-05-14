@@ -1,8 +1,8 @@
-import { createPost } from '../lib/user/postsService.js';
+import { createPost, createUrlImgPost } from '../lib/user/postsService.js';
 import { renderPostUser } from './posts.js';
 // import { userCurrentUser } from '../lib/user/userService.js';
 
-export default (dataCurrentUser) => {
+export default () => {
   const viewHome = document.createElement('section');
   viewHome.classList.add('containerHome');
   // const usernameId = firebase.auth().currentUser.uid;
@@ -41,20 +41,25 @@ export default (dataCurrentUser) => {
 
   const btnPost = viewHome.querySelector('#btnPost');
   const descriptionPost = viewHome.querySelector('#descriptionPost');
+  const postPhoto = viewHome.querySelector('#postPhoto');
 
-  btnPost.addEventListener('click', (e) => {
-    e.preventDefault();
-  
-    const user = firebase.auth().currentUser;
-    console.log(user);
-    createPost(user.uid, user.displayName, descriptionPost.value)
-      .then((docRef) => console.log('Document written with ID: ', docRef.id));
-    viewHome.querySelector('.descriptionPost').value = '';
-    viewHome.querySelector('.inputFile').value = '';
+  btnPost.addEventListener('click', (event) => {
+    event.preventDefault();
+    console.log('click-crearPost');
+    console.log(postPhoto.files[0]);
+
+    createUrlImgPost(postPhoto.files[0])
+      .then((urlImg) => {
+        const user = firebase.auth().currentUser;
+        createPost(user.uid, user.displayName, descriptionPost.value, urlImg);
+        viewHome.querySelector('.descriptionPost').value = '';
+        viewHome.querySelector('.inputFile').value = '';
+      })
+      .catch((error) => console.log(error));
+    
   });
-
-  // console.log(renderPostUser());
+  
   renderPostUser(viewHome);
-  // console.log(renderPostUser());
+  
   return viewHome;
 };

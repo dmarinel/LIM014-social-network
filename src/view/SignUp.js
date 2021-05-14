@@ -59,3 +59,20 @@ export default () => {
 
   return viewSignUp;
 };
+
+// btnPost.addEventListener('click', (e) => {
+//   e.preventDefault();
+//   console.log('clic-crearPost');
+//   const user = firebase.auth().currentUser;
+//   console.log(user);
+//   // console.log(postPhoto.files[0]);
+
+//   createPost(user.uid, user.displayName, descriptionPost.value)
+//     .then((docRef) => console.log('Document written with ID: ', docRef.id));
+
+//   // createUrlImgPost(postPhoto.files[0])
+//   //   .then((ele) => {
+//   //     console.log('hola mundo then');
+//   //     console.log(ele);
+//   //   });
+// });
