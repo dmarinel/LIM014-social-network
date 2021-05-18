@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { createPost, createUrlImgPost } from '../lib/user/postsService.js';
 import { hearSign } from '../lib/user/userService.js';
 // import { validatePost } from '../validations/validatePost.js';
@@ -93,7 +92,7 @@ export default () => {
     console.log(e);
     console.log(e.key);
 
-    if (e.key === 'Backspace' && descriptionPost.value === '') {
+    if (e.key === 'Backspace' && descriptionPost.value === '' && datafile === undefined) {
       console.log('hola');
       btnPost.classList.remove('btnCreatePost');
       btnPost.classList.add('btnDangerPost');
