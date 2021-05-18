@@ -1,4 +1,4 @@
-export const createPost = (uid, displayName, saveInformation, img) => {
+export const createPost = (uid, displayName, saveInformation, img, comment) => {
   const db = firebase.firestore();
   return db.collection('posts').add({
     id: uid,
@@ -6,7 +6,8 @@ export const createPost = (uid, displayName, saveInformation, img) => {
     posting: saveInformation,
     date: new Date().toLocaleString(),
     image: img,
-    likes: '1',
+    likes: [],
+
   });
 };
 
@@ -19,16 +20,20 @@ export const getPost = (callback) => {
       // console.log(querySnapshot);
       const post = [];
       querySnapshot.forEach((doc) => {
-        // console.log(doc.id);
+      // console.log('id del docuemento: ', doc.id);
+      // console.log('El objeto con todas las propiedades: ', doc.data());
+      // console.log('id del usuario: ', doc.data().id);
         post.push({
           postUs: doc.data().posting,
           idPost: doc.id,
           img: doc.data().image,
+          likes: doc.data().likes,
+
         });
-        // console.log(post);
+        console.log(post);
         callback(post);
       });
-      console.log(post);
+      // console.log(post);
       callback(post);
     });
 };
@@ -61,4 +66,29 @@ export const createUrlImgPost = (file) => {
     .then((downloadURL) => downloadURL)
     .catch((error) => console.log(error));
   return uploadImg;
+};
+
+// Updating likes
+export const likingPost = (id, likeUser) => {
+  firebase.firestore().collection('posts').doc(id)
+    .update({
+      likes: likeUser,
+    })
+    .then(() => {
+      console.log('Document successfully liked!');
+    })
+    .catch((error) => {
+      console.error('Error removing document: ', error);
+    });
+};
+
+// ------Comment--------
+
+// Creating Post
+
+export const creatingComment = (uid, idPost, comment) => {
+  firebase.firestore().collection('Comments').doc(idPost).set({
+    userId: uid,
+    comment,
+  });
 };
