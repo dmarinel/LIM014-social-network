@@ -99,7 +99,7 @@ div.createPost{
 .optionSeccion > select{
     height:20px;
 }
-.optionSeccion > #btnPost{
+/* .optionSeccion > #btnPost{
     background-color: var(--blue);
     color: var(--white);
     width: 86px;
@@ -108,6 +108,31 @@ div.createPost{
     border: 1px;
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+} */
+.btnCreatePost {
+    background-color: var(--blue);
+    color: var(--white);
+    width: 86px;
+    height: 24px;
+    border-radius: 30px;
+    border: 1px;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.btnDangerPost {
+    background-color: rgb(77, 66, 66);
+    color: var(--white);
+    width: 86px;
+    height: 24px;
+    border-radius: 30px;
+    border: 1px;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    cursor:not-allowed;
     font-size: 0.9rem;
     font-weight: 500;
 }

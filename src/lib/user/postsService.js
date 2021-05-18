@@ -14,22 +14,23 @@ export const getPost = (callback) => {
   const db = firebase.firestore();
   // return db.collection('posts').get();
   db.collection('posts')
-    .orderBy('date', 'desc').onSnapshot((querySnapshot) => {
-    // console.log(querySnapshot);
+    .orderBy('date', 'desc')
+    .onSnapshot((querySnapshot) => {
+      // console.log(querySnapshot);
       const post = [];
       querySnapshot.forEach((doc) => {
-      // console.log(doc.id);
-      post.push({
-        postUs: doc.data().posting,
-        idPost: doc.id,
-        img: doc.data().image,
+        // console.log(doc.id);
+        post.push({
+          postUs: doc.data().posting,
+          idPost: doc.id,
+          img: doc.data().image,
+        });
+        // console.log(post);
+        callback(post);
       });
-      // console.log(post);
+      console.log(post);
       callback(post);
     });
-    console.log(post);
-    callback(post);
-  });
 };
 
 export const deletePost = (id) => {

@@ -15,6 +15,7 @@ export const renderPostUser = (element) => {
     postUser1.forEach((doc) => {
       // console.log(doc.postUs);
       // console.log(doc.idPost);
+      const renderImgPost = doc.img === '' ? '' : `<img src=${doc.img} width="280" height="200" />`;
       const postUnique = document.createElement('article');
       postUnique.classList.add('postsAllUsers');
       postUnique.innerHTML = `
@@ -30,7 +31,7 @@ export const renderPostUser = (element) => {
             </div>
             </div>
             <p id="formPostShare" class="formPostShare" spellcheck = "false" required>${doc.postUs}</p>
-            <img  >
+            ${renderImgPost}
             <div class="likesAndComments">
               <p>3 likes</p>
               <p>4 comments</p>
