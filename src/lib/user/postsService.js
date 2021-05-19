@@ -1,10 +1,11 @@
-export const createPost = (uid, displayName, saveInformation, img, comment) => {
+export const createPost = (uid, displayName, photoURL, saveInformation, img, comment) => {
   const db = firebase.firestore();
   return db.collection('posts').add({
     id: uid,
     user: displayName,
+    userImg: photoURL,
     posting: saveInformation,
-    date: new Date().toLocaleString(),
+    date: new Date().toLocaleString('GMT-0500'),
     image: img,
     likes: [],
 
@@ -26,11 +27,12 @@ export const getPost = (callback) => {
         post.push({
           postUs: doc.data().posting,
           idPost: doc.id,
+          userImg: doc.data().userImg,
           img: doc.data().image,
+          userSign: doc.data().user,
           likes: doc.data().likes,
-
         });
-        console.log(post);
+        // console.log(post);
         callback(post);
       });
       // console.log(post);
@@ -91,4 +93,9 @@ export const creatingComment = (uid, idPost, comment) => {
     userId: uid,
     comment,
   });
+};
+
+export const updateInfoUserPost = (id, userId) => {
+  const db = firebase.firestore();
+  return db.collection('posts').where(id, '==', userId).get();
 };

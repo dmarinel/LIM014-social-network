@@ -15,15 +15,15 @@ export const renderPostUser = (element) => {
     postUser1.forEach((doc) => {
       // console.log(doc);
       // console.log(doc.postUs);
-      // console.log(doc.idPost);
+      console.log(`post: ${doc.userImg}`);
       const renderImgPost = doc.img === '' ? '' : `<img src=${doc.img} width="280" height="200" />`;
       const postUnique = document.createElement('article');
       postUnique.classList.add('postsAllUsers');
       postUnique.innerHTML = `
             <div class="userInformation">
               <section >
-                <img class="photoProfile" src="img/googleIcon.png" width="26" height="26"/>
-                <span>Denisse Montalvo</span>
+                <img class="photoProfile" src="${doc.userImg}" width="26" height="26"/>
+                <span>${doc.userSign}</span>
               </section>
               <div class="editByOwner">
                 <img src="img/editButton.PNG" width="20" height="20" class="btnPostEdit" data-id=${doc.idPost}></img>

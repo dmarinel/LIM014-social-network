@@ -52,7 +52,6 @@ export default () => {
           </div>`;
     userPrincipal.innerHTML = html;
   });
-
   const validatePost = (datafile) => {
     if (descriptionPost.value === '' && datafile === undefined) {
       btnPost.disable = false;
@@ -61,7 +60,7 @@ export default () => {
     } else if (datafile === undefined && descriptionPost.value) {
       console.log('sin imagen');
       const user = firebase.auth().currentUser;
-      createPost(user.uid, user.displayName, descriptionPost.value, '');
+      createPost(user.uid, user.displayName, user.photoURL, descriptionPost.value, '');
       viewHome.querySelector('.descriptionPost').value = '';
       viewHome.querySelector('.inputFile').value = '';
       btnPost.classList.remove('btnDangerPost');
@@ -73,7 +72,7 @@ export default () => {
       createUrlImgPost(postPhoto.files[0])
         .then((urlImg) => {
           const user = firebase.auth().currentUser;
-          createPost(user.uid, user.displayName, descriptionPost.value, urlImg);
+          createPost(user.uid, user.displayName, user.photoURL, descriptionPost.value, urlImg);
           viewHome.querySelector('.descriptionPost').value = '';
           viewHome.querySelector('.inputFile').value = '';
         })
@@ -89,8 +88,8 @@ export default () => {
   });
 
   descriptionPost.addEventListener('keydown', (e) => {
-    console.log(e);
-    console.log(e.key);
+    // console.log(e);
+    // console.log(e.key);
 
     if (e.key === 'Backspace' && descriptionPost.value === '') {
       console.log('hola');
