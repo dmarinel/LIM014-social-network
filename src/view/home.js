@@ -1,8 +1,6 @@
 import { createPost, createUrlImgPost } from '../lib/user/postsService.js';
 import { hearSign } from '../lib/user/userService.js';
-// import { validatePost } from '../validations/validatePost.js';
 import { renderPostUser } from './posts.js';
-// import { userCurrentUser } from '../lib/user/userService.js';
 
 export default () => {
   const viewHome = document.createElement('section');
@@ -52,24 +50,22 @@ export default () => {
           </div>`;
     userPrincipal.innerHTML = html;
   });
-
+ 
   const validatePost = (datafile) => {
-    if (descriptionPost.value === '' && datafile === undefined) {
+    if (descriptionPost.value.trim().length === 0 && datafile === undefined) {
       btnPost.disable = false;
+      console.log('hola campos basios');
       btnPost.classList.remove('btnCreatePost');
       btnPost.classList.add('btnDangerPost');
+      viewHome.querySelector('.descriptionPost').value = '';
     } else if (datafile === undefined && descriptionPost.value) {
       console.log('sin imagen');
       const user = firebase.auth().currentUser;
       createPost(user.uid, user.displayName, descriptionPost.value, '');
       viewHome.querySelector('.descriptionPost').value = '';
       viewHome.querySelector('.inputFile').value = '';
-      btnPost.classList.remove('btnDangerPost');
-      btnPost.classList.add('btnCreatePost');
     } else {
       console.log('subir imagen');
-      btnPost.classList.remove('btnDangerPost');
-      btnPost.classList.add('btnCreatePost');
       createUrlImgPost(postPhoto.files[0])
         .then((urlImg) => {
           const user = firebase.auth().currentUser;
@@ -84,19 +80,23 @@ export default () => {
   btnPost.addEventListener('click', (event) => {
     event.preventDefault();
     console.log('click-crearPost');
-    console.log(event);
+    // console.log(descriptionPost.value.trim().length);
     validatePost(postPhoto.files[0]);
   });
 
   descriptionPost.addEventListener('keydown', (e) => {
-    console.log(e);
-    console.log(e.key);
-
-    if (e.key === 'Backspace' && descriptionPost.value === '' && datafile === undefined) {
-      console.log('hola');
+    if (e.key === 'Backspace' && descriptionPost.value === '' && postPhoto.files[0] === undefined) {
       btnPost.classList.remove('btnCreatePost');
       btnPost.classList.add('btnDangerPost');
     } else {
+      btnPost.classList.remove('btnDangerPost');
+      btnPost.classList.add('btnCreatePost');
+    }
+  });
+
+  postPhoto.addEventListener('change', (e) => {
+    console.log('mundo file');
+    if (e.target.value !== '') {
       btnPost.classList.remove('btnDangerPost');
       btnPost.classList.add('btnCreatePost');
     }
