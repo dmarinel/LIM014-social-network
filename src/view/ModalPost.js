@@ -1,15 +1,15 @@
 export const renderModalPost = (data) => {
   console.log(data.posting);
-  const modalEditPost = document.createElement("div");
-  modalEditPost.classList.add("modal-content");
+  const modalEditPost = document.createElement('div');
+  modalEditPost.classList.add('modal-content');
   modalEditPost.innerHTML = `
       <section class="editPostClose">
       <span >Edit post</span>
       <span class="close">&times;</span>
       </section>
       <section class="dataUser">
-        <img class="photoProfile" src="img/googleIcon.png" width="26" height="26"/>
-        <span>Denisse Montalvo</span>
+        <img class="photoProfile" src="${data.userImg}" width="26" height="26"/>
+        <span>${data.user}</span>
       </section>
       <textarea id="inputPost" class="userEditPost" type="text">${data.posting}</textarea>  
         <section class="editPostImagen">

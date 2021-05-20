@@ -11,20 +11,20 @@ export const renderPostUser = (element) => {
   modal.setAttribute('id', 'myModal');
 
   getPost((postUser1) => {
-    //console.log('Devuelve un objeto con idPost, img, likes, postUs', postUser1);
+    // console.log('Devuelve un objeto con idPost, img, likes, postUs', postUser1);
     postUser.innerHTML = '';
     postUser1.forEach((doc) => {
       // console.log(doc);
       // console.log(doc.postUs);
-      // console.log(doc.idPost);
-      //let counterLike = doc.likes.length;
+      console.log(`post: ${doc.userImg}`);
+      const renderImgPost = doc.img === '' ? '' : `<img src=${doc.img} width="280" height="200" />`;
       const postUnique = document.createElement('article');
       postUnique.classList.add('postsAllUsers');
       postUnique.innerHTML = `
             <div class="userInformation">
               <section >
-                <img class="photoProfile" src="img/googleIcon.png" width="26" height="26"/>
-                <span>Denisse Montalvo</span>
+                <img class="photoProfile" src="${doc.userImg}" width="26" height="26"/>
+                <span>${doc.userSign}</span>
               </section>
               <div class="editByOwner">
                 <img src="img/editButton.PNG" width="20" height="20" class="btnPostEdit" data-id=${doc.idPost}></img>
@@ -33,7 +33,7 @@ export const renderPostUser = (element) => {
             </div>
 
             <p id="formPostShare" class="formPostShare" spellcheck = "false" required>${doc.postUs}</p>
-            <img >
+            ${renderImgPost}
             <div class="likesAndComments">
               <p>${doc.likes.length} likes</p>
               <p>5 comments</p>
@@ -51,11 +51,11 @@ export const renderPostUser = (element) => {
   
             `;
 
-      //console.log('Obtengo el número de likes de cada post', doc.likes.length);
-      
+      // console.log('Obtengo el número de likes de cada post', doc.likes.length);
+
       postUser.appendChild(postUnique);
     });
-    
+
     postUser.querySelectorAll('.btnPostDelete').forEach((btnPostDelete) => btnPostDelete.addEventListener('click', (e) => {
       const idPost = e.target.dataset.id;
       console.log(idPost);
@@ -89,9 +89,9 @@ export const renderPostUser = (element) => {
         });
     }));
 
-    postUser.querySelectorAll('#buttonLikePost').forEach((btnLike) => btnLike.addEventListener('click', (e) => {  
+    postUser.querySelectorAll('#buttonLikePost').forEach((btnLike) => btnLike.addEventListener('click', (e) => {
       const userUid = firebase.auth().currentUser.uid;
-      //console.log('id de usuario : ', userUid)
+      // console.log('id de usuario : ', userUid)
       const idPost = e.target.dataset.id;
       
       console.log('id del post: ', idPost )
@@ -138,7 +138,11 @@ export const renderPostUser = (element) => {
      })
 
 
-
+    postUser.querySelector('.Publicar').addEventListener('click', () => {
+      const textValue = postUser.querySelector('.comment').value;
+      console.log(textValue);
+      creatingComment('holi', 'abcd', textValue);
+    });
 
     // console.log(postUser);
 

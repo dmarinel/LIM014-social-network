@@ -7,6 +7,9 @@ export const createUser = (email, password) => {
 };
 
 export const upDateUser = (displayName, photoURL) => {
+  console.log('hola update user');
+  console.log(displayName, photoURL);
+
   const user = firebase.auth().currentUser;
   return user.updateProfile({ displayName, photoURL });
 };

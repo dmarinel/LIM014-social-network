@@ -1,13 +1,14 @@
-export const createPost = (uid, displayName, saveInformation, img, comment) => {
+export const createPost = (uid, displayName, photoURL, saveInformation, img, comment) => {
   const db = firebase.firestore();
   return db.collection('posts').add({
     id: uid,
     user: displayName,
+    userImg: photoURL,
     posting: saveInformation,
-    date: new Date().toLocaleString(),
+    date: new Date().toLocaleString('GMT-0500'),
     image: img,
     likes: [],
-    
+
   });
 };
 
@@ -15,26 +16,28 @@ export const getPost = (callback) => {
   const db = firebase.firestore();
   // return db.collection('posts').get();
   db.collection('posts')
-    .orderBy('date', 'desc').onSnapshot((querySnapshot) => {
-    // console.log(querySnapshot);
+    .orderBy('date', 'desc')
+    .onSnapshot((querySnapshot) => {
+      // console.log(querySnapshot);
       const post = [];
       querySnapshot.forEach((doc) => {
-      //console.log('id del docuemento: ', doc.id);
-      //console.log('El objeto con todas las propiedades: ', doc.data());
-      //console.log('id del usuario: ', doc.data().id);
-      post.push({
-        postUs: doc.data().posting,
-        idPost: doc.id,
-        img: doc.data().image,
-        likes: doc.data().likes,
-        
+      // console.log('id del docuemento: ', doc.id);
+      // console.log('El objeto con todas las propiedades: ', doc.data());
+      // console.log('id del usuario: ', doc.data().id);
+        post.push({
+          postUs: doc.data().posting,
+          idPost: doc.id,
+          userImg: doc.data().userImg,
+          img: doc.data().image,
+          userSign: doc.data().user,
+          likes: doc.data().likes,
+        });
+        // console.log(post);
+        callback(post);
       });
       // console.log(post);
       callback(post);
     });
-    //console.log(post);
-    callback(post);
-  });
 };
 
 export const deletePost = (id) => {
@@ -67,20 +70,22 @@ export const createUrlImgPost = (file) => {
   return uploadImg;
 };
 
-//Updating likes
+// Updating likes
 export const likingPost = (id, likeUser) => {
   firebase.firestore().collection('posts').doc(id)
     .update({
       likes: likeUser,
-    }).then(() => {
+    })
+    .then(() => {
       console.log('Document successfully liked!');
     })
     .catch((error) => {
       console.error('Error removing document: ', error);
     });
-
-}
-
+};
 
 
-
+export const updateInfoUserPost = (id, userId) => {
+  const db = firebase.firestore();
+  return db.collection('posts').where(id, '==', userId).get();
+};
