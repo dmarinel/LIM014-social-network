@@ -131,20 +131,15 @@ export const renderPostUser = (element) => {
 
 
 
-    postUser.querySelector('.Publicar').addEventListener('click', () => {
-      const textValue = postUser.querySelector('.comment').value
-      console.log(textValue)
-      creatingComment('holi', 'abcd', textValue)
-     })
 
 
-    postUser.querySelector('.Publicar').addEventListener('click', () => {
+   /*  postUser.querySelector('.Publicar').addEventListener('click', () => {
       const textValue = postUser.querySelector('.comment').value;
       console.log(textValue);
       creatingComment('holi', 'abcd', textValue);
     });
 
-    // console.log(postUser);
+    // console.log(postUser); */
 
     element.appendChild(postUser);
   });
