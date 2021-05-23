@@ -14,7 +14,11 @@ export default () => {
         <input type="email" id="signInEmail" placeholder="name@example.com" />
         <label >Password</label>
         <input type="password" id="signInPassword" placeholder="*********"/>
+        <p id="errMessage"></p> 
       </section>
+     
+      
+      
       <!-- <a class = "recoverPass" href="#/RecoverPassword">Did you forget your password?</a> -->
       
       <button id="buttonLogin" class="buttonAllLogin" > Login </button>
@@ -34,6 +38,24 @@ export default () => {
 
   const btnLogin = viewSignIn.querySelector('#buttonLogin');
 
+  // const inputPassword = viewSignIn.querySelector('#signInPassword');
+
+  // function maskify(str) {
+  //   const passwordToHide = str.value;
+  //   const x = passwordToHide.length;
+  //   let output = '';
+  //   for (let i = 0; i < x; i += 1) {
+  //     output += '*';
+  //   }
+  //   return output;
+  // }
+  // inputPassword.addEventListener('keyup', (e) => {
+  //   e.preventDefault();
+  //   inputPassword.value = maskify(inputPassword);
+  //   console.log(maskify(inputPassword));
+  //   console.log(maskify(inputPassword));
+  // });
+
   btnLogin.addEventListener('click', (e) => {
     e.preventDefault();
     const email = document.querySelector('#signInEmail').value;
@@ -44,9 +66,32 @@ export default () => {
         window.location.hash = '#/Home';
       })
       .catch((err) => {
+        const errMessage = viewSignIn.querySelector('#errMessage');
         console.log(err);
+        console.log(err.message.length);
+        errMessage.innerHTML = err.message;
         window.location.hash = '';
+        if (err.message.length === 37) {
+          const emailWrong = document.querySelector('#signInEmail');
+          const passwordWrong = document.querySelector('#signInPassword');
+          console.log('hola');
+          emailWrong.style.cssText = 'border-bottom: 1px solid rgb(255 0 0);';
+          passwordWrong.style.cssText = 'border-bottom: 1px solid rgb(95, 93, 93);';
+        } else if (err.message.length === 61) {
+          const emailWrong = document.querySelector('#signInEmail');
+          const passwordWrong = document.querySelector('#signInPassword');
+          console.log('hola');
+          passwordWrong.style.cssText = 'border-bottom: 1px solid rgb(255 0 0);';
+          emailWrong.style.cssText = 'border-bottom: 1px solid rgb(95, 93, 93);';
+        } else {
+          const emailWrong = document.querySelector('#signInEmail');
+          const passwordWrong = document.querySelector('#signInPassword');
+          console.log('hola');
+          passwordWrong.style.cssText = 'border-bottom: 1px solid rgb(255 0 0);';
+          emailWrong.style.cssText = 'border-bottom: 1px solid rgb(255 0 0);';
+        }
       });
+    console.log(password);
   });
 
   const btnGoogle = viewSignIn.querySelector('#buttonLoginGoogle');

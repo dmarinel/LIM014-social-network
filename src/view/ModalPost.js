@@ -16,7 +16,6 @@ export const renderModalPost = (data) => {
           <input type="file">
         </section>
         <button id="btnPostUpdate" class="btnPostUpdate">Update</button>
-    
       `;
   return modalEditPost;
 };

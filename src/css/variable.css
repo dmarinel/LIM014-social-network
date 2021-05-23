@@ -11,8 +11,9 @@
     --roboto: 'Roboto', sans-serif;
 
     /* Type of colors */
-    --blue:#2C29CC;
-    --blue-dark:#2C29CC;
+    --blue:#0e0bb1;
+    --blue-dark:#2b2bf3;
+    --blue-strongdark:#111179;
     --white: #FFFFFF;
     --light-blue: #2987CC; 
     --black:#000000;

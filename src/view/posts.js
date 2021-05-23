@@ -1,5 +1,5 @@
 import {
-  getPost, deletePost, getPostById, updatePost, likingPost
+  getPost, deletePost, getPostById, updatePost, likingPost,
 } from '../lib/user/postsService.js';
 import { renderModalPost } from './ModalPost.js';
 /* import {creatingComment} from '../lib/user/commentService' */
@@ -16,7 +16,7 @@ export const renderPostUser = (element) => {
     postUser1.forEach((doc) => {
       // console.log(doc);
       // console.log(doc.postUs);
-      console.log(`post: ${doc.userImg}`);
+      // console.log(`post: ${doc.userImg}`);
       const renderImgPost = doc.img === '' ? '' : `<img src=${doc.img} width="280" height="200" />`;
       const postUnique = document.createElement('article');
       postUnique.classList.add('postsAllUsers');
@@ -93,47 +93,43 @@ export const renderPostUser = (element) => {
       const userUid = firebase.auth().currentUser.uid;
       // console.log('id de usuario : ', userUid)
       const idPost = e.target.dataset.id;
-      
-      console.log('id del post: ', idPost )
-      
-      getPostById(idPost) 
+
+      console.log('id del post: ', idPost);
+
+      getPostById(idPost)
         .then((infoId) => infoId.data())
         .then((data) => {
-        console.log(data)
+          console.log(data);
 
-        const newArray = [...data.likes]
-        console.log('Array con el id de todos los usuarios que dieron like: ', newArray);
+          const newArray = [...data.likes];
+          console.log('Array con el id de todos los usuarios que dieron like: ', newArray);
 
-        const idUnicos = [...new Set(newArray)]
-        
-        /* const idUnicos = newArray.filter((valor, indice) => {
+          const idUnicos = [...new Set(newArray)];
+
+          /* const idUnicos = newArray.filter((valor, indice) => {
         return newArray.indexOf(valor) == indice;
         }); */
-        console.log('Filtra los id de usuarios repetidos', idUnicos);
-      
-        console.log('Devuelve la posición de cada id unico', idUnicos.indexOf(userUid));
-  
-        if (idUnicos.indexOf(userUid) == -1 ) {
-          newArray.push(userUid);
-          console.log(newArray)
-          likingPost(idPost, newArray);
-        } else {
-          console.log(userUid)
-          const unlike = idUnicos.filter((element) => {
-            if(userUid !== element) {
-              return element
-            }
-          })
-          likingPost(idPost , unlike);
-        }
-    });
-  }))
+          console.log('Filtra los id de usuarios repetidos', idUnicos);
 
+          console.log('Devuelve la posición de cada id unico', idUnicos.indexOf(userUid));
 
+          if (idUnicos.indexOf(userUid) == -1) {
+            newArray.push(userUid);
+            console.log(newArray);
+            likingPost(idPost, newArray);
+          } else {
+            console.log(userUid);
+            const unlike = idUnicos.filter((element) => {
+              if (userUid !== element) {
+                return element;
+              }
+            });
+            likingPost(idPost, unlike);
+          }
+        });
+    }));
 
-
-
-   /*  postUser.querySelector('.Publicar').addEventListener('click', () => {
+    /*  postUser.querySelector('.Publicar').addEventListener('click', () => {
       const textValue = postUser.querySelector('.comment').value;
       console.log(textValue);
       creatingComment('holi', 'abcd', textValue);
