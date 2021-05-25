@@ -27,7 +27,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--light-blue);
+    background-color: var(--blue-dark);
     color:var(--white);
     border-radius: 5px 5px 0 0;
     padding: 0 8px 0 8px;

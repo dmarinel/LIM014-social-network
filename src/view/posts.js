@@ -23,7 +23,7 @@ export const renderPostUser = (element) => {
       postUnique.innerHTML = `
             <div class="userInformation">
               <section >
-                <img class="photoProfile" src="${doc.userImg}" width="26" height="26"/>
+                <img class="photoProfilePost" src="${doc.userImg}" width="26" height="26"/>
                 <span>${doc.userSign}</span>
               </section>
               <div class="editByOwner">
@@ -113,7 +113,7 @@ export const renderPostUser = (element) => {
 
           console.log('Devuelve la posición de cada id unico', idUnicos.indexOf(userUid));
 
-          if (idUnicos.indexOf(userUid) == -1) {
+          if (idUnicos.indexOf(userUid) === -1) {
             newArray.push(userUid);
             console.log(newArray);
             likingPost(idPost, newArray);

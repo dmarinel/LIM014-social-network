@@ -8,14 +8,7 @@ export default () => {
   // const usernameId = firebase.auth().currentUser.uid;
   viewHome.innerHTML = `
         <aside class="userPrincipal">
-          <img class="photoProfile" src="img/googleIcon.png"/>
-          <div class="userAndStatus">
-            <h3> pepe</h3>
-            <div class="status">
-              <img  src="img/greenDot.png"/>
-              <span>:c</span>
-            </div>
-          </div>
+
         </aside>
         <div class="createPost">
           <form action="" id="iNeed">

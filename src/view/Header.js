@@ -3,7 +3,7 @@ import { signOut } from '../lib/user/userService.js';
 export default () => {
   const viewHeader = document.createElement('header');
   viewHeader.innerHTML = `
-    <a href="#/Home"><img src="img/funkOkkHeader.png" width="131" height="50"  alt="logo"></a>
+   <img class="imgHeader" src="img/funkOokWhite.png" width="160" height="60"  alt="logo">
     <button id="hamburger" class="hamburger">
       <i class="fa fa-bars"></i>
     </button>
@@ -18,6 +18,11 @@ export default () => {
   const btnLogOut = viewHeader.querySelector('#btnLogOut');
   const hamburger = viewHeader.querySelector('#hamburger');
   const menuList = viewHeader.querySelector('#menuList');
+  const imgHeader = viewHeader.querySelector('.imgHeader');
+
+  imgHeader.addEventListener('click', () => {
+    window.location.hash = '#/Home';
+  });
   hamburger.addEventListener('click', () => {
     menuList.classList.toggle('show');
   });

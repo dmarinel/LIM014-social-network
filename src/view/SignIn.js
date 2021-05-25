@@ -2,8 +2,10 @@ import { signIn, signInGoogle } from '../lib/user/userService.js';
 
 export default () => {
   const viewSignIn = document.createElement('div');
+  viewSignIn.classList.add('signInGrid');
   viewSignIn.innerHTML = `
 
+ <img src="img/funkoLogoSignIn.jpg"  class="homeFunkOok" alt="logo"> 
     <section class="container container-signIn" >
       <figure class="signIn-images">
         <img src="img/logo.png" width="118" height="95"  alt="logo">
@@ -34,7 +36,7 @@ export default () => {
       </section>
 
     </section>`;
-  console.log('hola mundo  ');
+  // console.log('hola mundo  ');
 
   const btnLogin = viewSignIn.querySelector('#buttonLogin');
 
@@ -74,19 +76,16 @@ export default () => {
         if (err.message.length === 37) {
           const emailWrong = document.querySelector('#signInEmail');
           const passwordWrong = document.querySelector('#signInPassword');
-          console.log('hola');
           emailWrong.style.cssText = 'border-bottom: 1px solid rgb(255 0 0);';
           passwordWrong.style.cssText = 'border-bottom: 1px solid rgb(95, 93, 93);';
         } else if (err.message.length === 61) {
           const emailWrong = document.querySelector('#signInEmail');
           const passwordWrong = document.querySelector('#signInPassword');
-          console.log('hola');
           passwordWrong.style.cssText = 'border-bottom: 1px solid rgb(255 0 0);';
           emailWrong.style.cssText = 'border-bottom: 1px solid rgb(95, 93, 93);';
         } else {
           const emailWrong = document.querySelector('#signInEmail');
           const passwordWrong = document.querySelector('#signInPassword');
-          console.log('hola');
           passwordWrong.style.cssText = 'border-bottom: 1px solid rgb(255 0 0);';
           emailWrong.style.cssText = 'border-bottom: 1px solid rgb(255 0 0);';
         }

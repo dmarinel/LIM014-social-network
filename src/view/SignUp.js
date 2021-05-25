@@ -1,5 +1,6 @@
 import {
   createUser,
+  sendEmail,
   upDateUser,
   uploadFileUserImg,
 } from '../lib/user/userService.js';
@@ -11,17 +12,17 @@ export default () => {
   <h1>Sign Up</h1>
     <section class="signInUp-input signUp-input">
       <label>Full Name</label>
-      <input type="text" id="signUpFullname" placeholder="Enter your Name" required />
+      <input type="text"  id="signUpFullname" placeholder="Enter your Name"  />
       <label>Email</label>
       <input type="email" id="signUpEmail" placeholder="name@example.com" />
       <label>Password</label>
-      <input type="password" id="signUpPassword" placeholder="Enter your Password" />
+      <input type="password" id="signUpPassword" placeholder="Enter your Password"  />
       <label>Confirm Password</label>
       <input type="password" id="floatingPassword" placeholder="Confirm Password" />
       <label>Chosse your photo</label>
       <span>
-      <input type="file" id="signUpPhoto" aria-describedby="inputGroupPrepend" require />
-
+      <input type="file" id="signUpPhoto" aria-describedby="inputGroupPrepend" />
+      <p class="errMessage" id="errMessage"></p> 
     </section>
 
     <button class="buttonAllLogin" id="buttonRegister"  >REGISTER</button>
@@ -37,42 +38,52 @@ export default () => {
   const signUpFullname = viewSignUp.querySelector('#signUpFullname');
   const buttonRegister = viewSignUp.querySelector('#buttonRegister');
   const signUpPhoto = viewSignUp.querySelector('#signUpPhoto');
+  const errMessage = viewSignUp.querySelector('#errMessage');
   console.log(signUpPhoto);
 
   buttonRegister.addEventListener('click', () => {
     // e.preventDefault();
     console.log('hola user');
+    // const signUpname = document.querySelector('#signUpFullname');
+    // const passwordWrong = document.querySelector('#signUpPassword');
+    // const emailWrong = document.querySelector('#signUpEmail');
+    // emailWrong.style.cssText = 'border-bottom: 1px solid rgb(255 0 0);';
+    // passwordWrong.style.cssText = 'border-bottom: 1px solid rgb(255 0 0);';
+    // signUpname.style.cssText = 'border-bottom: 1px solid rgb(255 0 0);';
+    // if (signUpname.value === '' || passwordWrong.value === '' || emailWrong.value === '') {
+    //   console.log('help');
+    //   signUpname.setCustomValidity('wrong');
+    //   passwordWrong.setCustomValidity('wrong');
+    //   emailWrong.setCustomValidity('wrong');
+    // }
     createUser(signUpEmail.value, signUpPassword.value)
       .then(() => {
+        console.log('registrado');
+        sendEmail();
+        // signupForm.reset();
         uploadFileUserImg(signUpPhoto.files[0]).then((urlImg) => {
           upDateUser(signUpFullname.value, urlImg);
         });
-
-        window.location.hash = '#/Home';
+        window.location.hash = '';
+        // window.location.hash = '#/Home';
       })
       .catch((error) => {
         console.log('hola error');
+        console.log(error);
         console.log(error.message);
+
+        console.log(error.message.length);
+        errMessage.innerHTML = error.message;
         window.location.hash = '#/Register';
+      });
+    sendEmail()
+      .then(() => {
+        errMessage.textContent = 'Please check your inbox to verify your account';
+      })
+      .catch((err) => {
+        errMessage.textContent = err.message;
       });
   });
 
   return viewSignUp;
 };
-
-// btnPost.addEventListener('click', (e) => {
-//   e.preventDefault();
-//   console.log('clic-crearPost');
-//   const user = firebase.auth().currentUser;
-//   console.log(user);
-//   // console.log(postPhoto.files[0]);
-
-//   createPost(user.uid, user.displayName, descriptionPost.value)
-//     .then((docRef) => console.log('Document written with ID: ', docRef.id));
-
-//   // createUrlImgPost(postPhoto.files[0])
-//   //   .then((ele) => {
-//   //     console.log('hola mundo then');
-//   //     console.log(ele);
-//   //   });
-// });
