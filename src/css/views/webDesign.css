@@ -1,0 +1,61 @@
+@media only screen and (min-width: 1000px){
+    .allContainer{
+        /* display: flex; */
+    justify-content: center;    
+}
+.container-signIn{
+    width: 500px;
+    justify-self: center;
+    /* box-shadow: 0 0 15px 10px; */
+}
+.homeFunkOok{
+    display: flex;
+    width: 50vw;
+    height: 100vh;
+    box-shadow: 0 0 25px 2px;
+
+}
+.signInGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+.container-signUp {
+    width: 500px;
+    box-shadow: 0 0 50px 1px;
+    border-radius: 38px;
+}
+header > ul{
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    list-style: none;
+    gap:25px;
+    font-size: 23px;
+    color: var(--black);
+    align-content: center;
+
+}
+.hamburger{
+    display: none;
+}
+header{
+    justify-content: space-between;
+    padding: 13px;
+    height:fit-content;
+    
+}
+.btnLogOut {
+    background: none;
+    font-size: 23px;
+    color: var(--white);
+    font-family: var(--roboto);
+    font-weight:400;
+    /*color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit; */
+}
+}

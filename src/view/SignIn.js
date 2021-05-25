@@ -2,8 +2,10 @@ import { signIn, signInGoogle } from '../lib/user/userService.js';
 
 export default () => {
   const viewSignIn = document.createElement('div');
+  viewSignIn.classList.add('signInGrid');
   viewSignIn.innerHTML = `
 
+ <img src="img/funkoLogoSignIn.jpg"  class="homeFunkOok" alt="logo"> 
     <section class="container container-signIn" >
       <figure class="signIn-images">
         <img src="img/logo.png" width="118" height="95"  alt="logo">
@@ -14,7 +16,11 @@ export default () => {
         <input type="email" id="signInEmail" placeholder="name@example.com" />
         <label >Password</label>
         <input type="password" id="signInPassword" placeholder="*********"/>
+        <p id="errMessage"></p> 
       </section>
+     
+      
+      
       <!-- <a class = "recoverPass" href="#/RecoverPassword">Did you forget your password?</a> -->
       
       <button id="buttonLogin" class="buttonAllLogin" > Login </button>
@@ -30,9 +36,27 @@ export default () => {
       </section>
 
     </section>`;
-  console.log('hola mundo  ');
+  // console.log('hola mundo  ');
 
   const btnLogin = viewSignIn.querySelector('#buttonLogin');
+
+  // const inputPassword = viewSignIn.querySelector('#signInPassword');
+
+  // function maskify(str) {
+  //   const passwordToHide = str.value;
+  //   const x = passwordToHide.length;
+  //   let output = '';
+  //   for (let i = 0; i < x; i += 1) {
+  //     output += '*';
+  //   }
+  //   return output;
+  // }
+  // inputPassword.addEventListener('keyup', (e) => {
+  //   e.preventDefault();
+  //   inputPassword.value = maskify(inputPassword);
+  //   console.log(maskify(inputPassword));
+  //   console.log(maskify(inputPassword));
+  // });
 
   btnLogin.addEventListener('click', (e) => {
     e.preventDefault();
@@ -44,9 +68,29 @@ export default () => {
         window.location.hash = '#/Home';
       })
       .catch((err) => {
+        const errMessage = viewSignIn.querySelector('#errMessage');
         console.log(err);
+        console.log(err.message.length);
+        errMessage.innerHTML = err.message;
         window.location.hash = '';
+        if (err.message.length === 37) {
+          const emailWrong = document.querySelector('#signInEmail');
+          const passwordWrong = document.querySelector('#signInPassword');
+          emailWrong.style.cssText = 'border-bottom: 1px solid rgb(255 0 0);';
+          passwordWrong.style.cssText = 'border-bottom: 1px solid rgb(95, 93, 93);';
+        } else if (err.message.length === 61) {
+          const emailWrong = document.querySelector('#signInEmail');
+          const passwordWrong = document.querySelector('#signInPassword');
+          passwordWrong.style.cssText = 'border-bottom: 1px solid rgb(255 0 0);';
+          emailWrong.style.cssText = 'border-bottom: 1px solid rgb(95, 93, 93);';
+        } else {
+          const emailWrong = document.querySelector('#signInEmail');
+          const passwordWrong = document.querySelector('#signInPassword');
+          passwordWrong.style.cssText = 'border-bottom: 1px solid rgb(255 0 0);';
+          emailWrong.style.cssText = 'border-bottom: 1px solid rgb(255 0 0);';
+        }
       });
+    console.log(password);
   });
 
   const btnGoogle = viewSignIn.querySelector('#buttonLoginGoogle');

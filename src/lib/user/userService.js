@@ -6,6 +6,11 @@ export const createUser = (email, password) => {
   return user.createUserWithEmailAndPassword(email, password);
 };
 
+export const sendEmail = () => {
+  const user = firebase.auth().currentUser;
+  return user.sendEmailVerification();
+};
+
 export const upDateUser = (displayName, photoURL) => {
   console.log('hola update user');
   console.log(displayName, photoURL);
@@ -41,6 +46,21 @@ export const hearSign = (callback) => {
       // console.log(user.email);
       
       console.log('sign in :3');
+      const emailVerified = user.emailVerified;
+      // let textoVerificado = '';
+      if (emailVerified === false) {
+        console.log('no verificado');
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Do not forget to confirm your email address!',
+        });
+        window.location.hash = '';
+      } else {
+        console.log('verificado');
+        // window.location.hash = '#/Home';
+        // textoVerificado = 'Email verificado';
+      }
       callback(user);
     } else {
       console.log('sign out :c');

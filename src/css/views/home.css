@@ -16,7 +16,7 @@
 
 }
 .allContainer > header {
-    background-color: var(--light-blue);
+    background-color: var(--blue-dark);
     /* grid-column: 1/2; */
 
 }
@@ -53,7 +53,9 @@ aside > .photoProfile{
     margin: 1rem;
    
 }
+.photoProfile{
 
+}
 .userAndStatus > h3 {
     text-align:initial;
     font-size: 1.1rem;

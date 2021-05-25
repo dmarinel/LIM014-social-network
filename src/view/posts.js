@@ -15,7 +15,8 @@ export const renderPostUser = (element) => {
     postUser.innerHTML = '';
     dataPost.forEach((doc) => {
       // console.log(doc);
-      //console.log(`post: ${doc.userImg}`);
+      // console.log(doc.postUs);
+      // console.log(`post: ${doc.userImg}`);
       const renderImgPost = doc.img === '' ? '' : `<img src=${doc.img} width="280" height="200" />`;
       const postUnique = document.createElement('article');
       postUnique.classList.add('postsAllUsers');
@@ -23,7 +24,7 @@ export const renderPostUser = (element) => {
                 
             <div class="userInformation">
               <section >
-                <img class="photoProfile" src="${doc.userImg}" width="26" height="26"/>
+                <img class="photoProfilePost" src="${doc.userImg}" width="26" height="26"/>
                 <span>${doc.userSign}</span>
               </section>
               <div class="editByOwner">
@@ -99,16 +100,16 @@ export const renderPostUser = (element) => {
       const userUid = firebase.auth().currentUser.uid;
       // console.log('id de usuario : ', userUid)
       const idPost = e.target.dataset.id;
-      
-      console.log('id del post: ', idPost )
-      
-      getPostById(idPost) 
+
+      console.log('id del post: ', idPost);
+
+      getPostById(idPost)
         .then((infoId) => infoId.data())
         .then((data) => {
-        console.log(data)
+          console.log(data);
 
-        const newArray = [...data.likes]
-        console.log('Array con el id de todos los usuarios que dieron like: ', newArray);
+          const newArray = [...data.likes];
+          console.log('Array con el id de todos los usuarios que dieron like: ', newArray);
 
         const idUnicos = [...new Set(newArray)]
         console.log('Filtra los id de usuarios repetidos', idUnicos);

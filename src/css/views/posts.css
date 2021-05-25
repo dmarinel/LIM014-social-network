@@ -12,7 +12,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--light-blue);
+    background-color: var(--blue-dark);
     color:var(--white);
     border-radius: 5px 5px 0 0;
     padding: 0 8px 0 8px;
@@ -23,7 +23,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.5px
+    gap: 5px
 }
 .formPostShare{
     padding:18px 9px 0 18px;
@@ -86,90 +86,9 @@
     padding: 9px 10px 2px 10px;
     margin: 0px 9px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-:root {
-    --clr-primary: #0a2bebb2;
-    --clr-gray: #37474f;
-    --clr-gray-light: #b0bec5;
-  }
-  
-  * {
-    box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    margin: 2rem;
-    color: var(--clr-gray);
-  }
-  
-  .gridTemplate{
-    display: grid;
-    grid-template-columns: minmax(300px, 1fr);
-    grid-gap: 2rem;
-    justify-content: center;
-  }
-  
-  .containerBox{
-    overflow: hidden;
-    box-shadow: 0px 2px 8px 0px;
-    text-align: center;
-    border-radius: 2rem;
-    position: relative;
-  }
-    
-  .banner {
-    position: absolute;
-    background-color: #b0bec5;
-    height: 10rem;
-    width: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
-  .profileImg{
-    width: 8rem;
-    clip-path: circle(60px at center);
-    margin-top: 4.5rem;
-  }
-  
-  .userName {
-    font-weight: bold;
-    font-size: 1.5 rem;
-  }
-  
-  .description {
-    margin: 1rem 2rem;
-    font-size: 0.9rem;
-  }
-  
-  .btnProfile {
-    width: 60%;
-    border-radius: 1rem;
-    margin-bottom: 1rem;
-    border: none;
-    font-size: 1rem;
-    font-weight: bold;
-    color: white;
-    padding: 1rem;
-    background-color: var(--clr-primary);
-  }
+.photoProfilePost{
+    border-radius: 50px;
+}
+#comment-container{
+    display: none;
+}

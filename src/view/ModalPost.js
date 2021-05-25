@@ -8,7 +8,7 @@ export const renderModalPost = (data) => {
       <span class="close">&times;</span>
       </section>
       <section class="dataUser">
-        <img class="photoProfile" src="${data.userImg}" width="26" height="26"/>
+        <img class="photoProfilePost" src="${data.userImg}" width="26" height="26"/>
         <span>${data.user}</span>
       </section>
       <textarea id="inputPost" class="userEditPost" type="text">${data.posting}</textarea>  
@@ -16,7 +16,6 @@ export const renderModalPost = (data) => {
           <input type="file">
         </section>
         <button id="btnPostUpdate" class="btnPostUpdate">Update</button>
-    
       `;
   return modalEditPost;
 };

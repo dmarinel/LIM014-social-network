@@ -1,5 +1,4 @@
 header{
-    background-color: var(--light-blue);
     position:sticky;
     top:0;
     left: 0;
@@ -13,7 +12,7 @@ header{
 }
 
 .hamburger{
-    background-color: var(--blue);
+    background-color: var(--white);
     height: 38px;
     border: 0;
     width: 43px;
@@ -37,7 +36,7 @@ header > ul.show{
     align-items: center;
     padding: 1rem;
     gap:1rem;
-    background-color: #2988ccc0;
+    background-color:var(--blue-dark);
     list-style: none;
     font-size: 1.2rem;
     font-weight: 700;
@@ -50,8 +49,12 @@ header > ul.show{
     background-color:var(--light-blue);
     border:none;
     font-size: 1.2rem;
-
     font-weight: 700;
+    background: none;
+    color: var(--white);
+    font-family: var(--roboto);
+    
 } 
-
-
+.fa{
+    color: var(--blue-strongdark);
+}
