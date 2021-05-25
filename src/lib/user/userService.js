@@ -39,12 +39,14 @@ export const hearSign = (callback) => {
       // console.log(user.displayName);
       // console.log(user.photoURL);
       // console.log(user.email);
+      
       console.log('sign in :3');
       callback(user);
     } else {
       console.log('sign out :c');
     }
   });
+  /* return firebase.auth().currentUser; */
 };
 // ******** SIGN IN *******
 

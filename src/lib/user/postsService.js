@@ -1,4 +1,5 @@
-export const createPost = (uid, displayName, photoURL, saveInformation, img, comment) => {
+//Objeto con todas las propiedades
+export const createPost = (uid, displayName, photoURL, saveInformation, img) => {
   const db = firebase.firestore();
   return db.collection('posts').add({
     id: uid,
@@ -21,9 +22,11 @@ export const getPost = (callback) => {
       // console.log(querySnapshot);
       const post = [];
       querySnapshot.forEach((doc) => {
-      // console.log('id del docuemento: ', doc.id);
-      // console.log('El objeto con todas las propiedades: ', doc.data());
-      // console.log('id del usuario: ', doc.data().id);
+        /* console.log('El objeto con todas las propiedades: ', doc.data());
+        console.log('id del usuario: ', doc.data().id);
+        console.log('Nombre del usuario: ', doc.data().user);
+        console.log('id del docuemento: ', doc.id); */
+
         post.push({
           postUs: doc.data().posting,
           idPost: doc.id,
@@ -40,14 +43,16 @@ export const getPost = (callback) => {
     });
 };
 
-export const deletePost = (id) => {
-  const db = firebase.firestore();
-  return db.collection('posts').doc(id).delete();
-};
+
 
 export const getPostById = (id) => {
   const db = firebase.firestore();
   return db.collection('posts').doc(id).get();
+};
+
+export const deletePost = (id) => {
+  const db = firebase.firestore();
+  return db.collection('posts').doc(id).delete();
 };
 
 export const updatePost = (id, updatedPost) => {
@@ -89,3 +94,5 @@ export const updateInfoUserPost = (id, userId) => {
   const db = firebase.firestore();
   return db.collection('posts').where(id, '==', userId).get();
 };
+
+
