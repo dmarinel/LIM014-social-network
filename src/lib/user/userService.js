@@ -45,7 +45,7 @@ export const hearSign = (callback) => {
       // console.log(user.photoURL);
       // console.log(user.email);
       
-      console.log('sign in :3');
+      // console.log('sign in :3');
       const emailVerified = user.emailVerified;
       // let textoVerificado = '';
       if (emailVerified === false) {
@@ -57,13 +57,13 @@ export const hearSign = (callback) => {
         });
         window.location.hash = '';
       } else {
-        console.log('verificado');
+        // console.log('verificado');
         // window.location.hash = '#/Home';
         // textoVerificado = 'Email verificado';
       }
       callback(user);
     } else {
-      console.log('sign out :c');
+      // console.log('sign out :c');
     }
   });
   /* return firebase.auth().currentUser; */

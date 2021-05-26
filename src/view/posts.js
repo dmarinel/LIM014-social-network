@@ -30,11 +30,6 @@ export const renderPostUser = (element) => {
                 <span>${doc.userSign}</span>
               </section>
               <div class="editByOwner">
-
-
-
-               
-                
                 
                 </img>
               </div>
@@ -47,7 +42,8 @@ export const renderPostUser = (element) => {
               <p>5 comments</p>
             </div>
             <div class="buttonLikeComment">
-            <img src="img/likeButton.PNG" width="18.6" height="18" class="buttonLikePost" id="buttonLikePost" data-id=${doc.idPost}/>
+           
+            <i  class="fa fa-thumbs-up fa-lg" id="buttonLikePost" data-id=${doc.idPost}></i>
               <button class="buttonCommentPost">Comment</button>
             </div>
 
@@ -65,18 +61,18 @@ export const renderPostUser = (element) => {
 
       const userPost = postUnique.querySelector('.editByOwner');
       hearSign((user) => {
-        console.log(user.displayName, doc.userSign);
+        // console.log(user.displayName, doc.userSign);
         if (user.displayName === doc.userSign) {
           const html = ` <img src="img/editButton.PNG" width="20" height="20" class="btnPostEdit" data-id=${doc.idPost}>
           <img src="img/deleteButton.PNG" width="20" height="20" class="btnPostDelete" data-id=${doc.idPost}>`;
           userPost.innerHTML = html;
         } else {
-          console.log('suerte');
+          // console.log('suerte');
         }
         // Funcionalidad para borrar post
         postUser.querySelectorAll('.btnPostDelete').forEach((btnPostDelete) => btnPostDelete.addEventListener('click', (e) => {
           const idPost = e.target.dataset.id;
-          console.log(idPost);
+          // console.log(idPost);
           deletePost(idPost).then(() => console.log('elemento eliminado'));
         }));
         // Funcionalidad para editar post
@@ -90,11 +86,11 @@ export const renderPostUser = (element) => {
               const btnClose = modalContent.querySelector('.close');
               const btnUpdate = modalContent.querySelector('#btnPostUpdate');
               btnClose.addEventListener('click', () => {
-                console.log('hola');
+                // console.log('hola');
                 modal.style.display = 'none';
               });
               btnUpdate.addEventListener('click', () => {
-                console.log('hola');
+                // console.log('hola');
                 const inputPost = modalContent.querySelector('#inputPost');
                 updatePost(idPost, {
                   posting: inputPost.value,
@@ -115,25 +111,25 @@ export const renderPostUser = (element) => {
       const userUid = firebase.auth().currentUser.uid;
       // console.log('id de usuario : ', userUid)
       const idPost = e.target.dataset.id;
-
-      console.log('id del post: ', idPost);
+      btnLike.classList.add('tumbsActive');
+      // console.log('id del post: ', idPost);
 
       getPostById(idPost)
         .then((infoId) => infoId.data())
         .then((data) => {
-          console.log(data);
+          // console.log(data);
 
           const newArray = [...data.likes];
-          console.log('Array con el id de todos los usuarios que dieron like: ', newArray);
+          // console.log('Array con el id de todos los usuarios que dieron like: ', newArray);
 
           const idUnicos = [...new Set(newArray)];
-          console.log('Filtra los id de usuarios repetidos', idUnicos);
+          // console.log('Filtra los id de usuarios repetidos', idUnicos);
 
-          console.log('Devuelve la posición de cada id unico', idUnicos.indexOf(userUid));
+          // console.log('Devuelve la posición de cada id unico', idUnicos.indexOf(userUid));
 
           if (idUnicos.indexOf(userUid) === -1) {
             newArray.push(userUid);
-            console.log(newArray);
+            // console.log(newArray);
             likingPost(idPost, newArray);
           } else {
             const unlike = idUnicos.filter((element) => {
@@ -141,7 +137,7 @@ export const renderPostUser = (element) => {
                 return element;
               }
             });
-            console.log(unlike);
+            // console.log(unlike);
             likingPost(idPost, unlike);
           }
         });
