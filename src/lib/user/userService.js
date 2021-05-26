@@ -41,6 +41,10 @@ export const hearSign = (callback) => {
   const hearChanged = firebase.auth();
   hearChanged.onAuthStateChanged((user) => {
     if (user) {
+      // console.log(user.displayName);
+      // console.log(user.photoURL);
+      // console.log(user.email);
+      
       console.log('sign in :3');
       const emailVerified = user.emailVerified;
       // let textoVerificado = '';
@@ -62,6 +66,7 @@ export const hearSign = (callback) => {
       console.log('sign out :c');
     }
   });
+  /* return firebase.auth().currentUser; */
 };
 // ******** SIGN IN *******
 

@@ -1,3 +1,12 @@
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+
 .allContainer {
     display:grid;
     /* gap: 1.6rem; */
@@ -142,3 +151,169 @@ div.createPost{
 form > input{
     padding: 10px;
 }
+
+
+
+
+
+:root {
+  --clr-primary: #0a2bebb2;
+  --clr-gray: #37474f;
+  --clr-gray-light: #b0bec5;
+}
+
+
+.gridTemplate{
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr);
+  grid-gap: 2rem;
+  justify-content: center;
+}
+
+.containerBox{
+  overflow: hidden;
+  margin: 30px 0 30px  0;
+  width: 296px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 36%);
+  text-align: center;
+  border-radius: 0.3rem;
+  position: relative;
+}
+
+.banner {
+  position: absolute;
+  background-color: #b0bec5;
+  height: 10rem;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.profileImg{
+  width: 8rem;
+  clip-path: circle(60px at center);
+  margin-top: 4.5rem;
+}
+
+.userName {
+  font-weight: bold;
+  font-size: 1.5 rem;
+}
+
+.description {
+  margin: 1rem 0.5rem;
+  font-size: 0.9rem;
+}
+
+.btnProfile {
+  width: 60%;
+  border-radius: 1rem;
+  margin: 1rem;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  padding: 0.5rem;
+  background-color: var(--clr-primary);
+}
+
+
+
+
+
+@media screen and (min-width: 760px) {
+  .gridTemplate {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+
+
+/* 
+:root {
+    --clr-primary: #0a2bebb2;
+    --clr-gray: #37474f;
+    --clr-gray-light: #b0bec5;
+  }
+  
+  * {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    margin: 2rem;
+    color: var(--clr-gray);
+  }
+  
+  .gridTemplate{
+    display: grid;
+    grid-template-columns: minmax(300px, 1fr);
+    grid-gap: 2rem;
+    justify-content: center;
+  }
+  
+  .containerBox{
+    overflow: hidden;
+    box-shadow: 0px 2px 8px 0px;
+    text-align: center;
+    border-radius: 2rem;
+    position: relative;
+  }
+    
+  .banner {
+    position: absolute;
+    background-color: #b0bec5;
+    height: 10rem;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .profileImg{
+    width: 8rem;
+    clip-path: circle(60px at center);
+    margin-top: 4.5rem;
+  }
+  
+  .userName {
+    font-weight: bold;
+    font-size: 1.5 rem;
+  }
+  
+  .description {
+    margin: 1rem 2rem;
+    font-size: 0.9rem;
+  }
+  
+  .btnProfile {
+    width: 60%;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    padding: 1rem;
+    background-color: var(--clr-primary);
+  }
+  
+  
+  @media screen and (min-width: 500px) {
+    .gridTemplate {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  
+  @media screen and (min-width: 760px) {
+    .gridTemplate {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+   */
