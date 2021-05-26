@@ -59,3 +59,25 @@ header{
     outline: inherit; */
 }
 }
+@media screen and (min-width: 760px) {
+    .gridTemplate {
+      grid-template-columns: 1fr 2fr;
+      grid-template-rows: 10em auto;
+      margin: 40px 0px 0px 0px;
+      grid-template-areas:
+        "a b"
+        "a c";
+    }
+    .userPrincipal{
+        padding: 150px 0px 0px 0px;
+    }
+    .containerBox{
+        grid-area: a;
+    }
+    .createPost{
+        grid-area: b;
+    }
+    .containerHome>section{
+        grid-area: c;
+    }
+  }

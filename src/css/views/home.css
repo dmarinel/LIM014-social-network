@@ -27,7 +27,7 @@
 .allContainer > header {
     background-color: var(--blue-dark);
     /* grid-column: 1/2; */
-
+    z-index:20;
 }
 
 .containerHome{
@@ -223,11 +223,7 @@ form > input{
 
 
 
-@media screen and (min-width: 760px) {
-  .gridTemplate {
-    grid-template-columns: 1fr 2fr;
-  }
-}
+
 
 
 
