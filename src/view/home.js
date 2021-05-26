@@ -5,6 +5,7 @@ import { renderPostUser } from './posts.js';
 export default () => {
   const viewHome = document.createElement('section');
   viewHome.classList.add('containerHome');
+  viewHome.classList.add('gridTemplate');
   // const usernameId = firebase.auth().currentUser.uid;
   viewHome.innerHTML = `
   
@@ -32,16 +33,34 @@ export default () => {
   const postPhoto = viewHome.querySelector('#postPhoto');
 
   const userPrincipal = viewHome.querySelector('.userPrincipal');
-
-  hearSign((user) => {
-    const html = `<img class="photoProfile" src="${user.photoURL}"/>
+/* 
+  <img class="photoProfile" src="${user.photoURL}"/>
           <div class="userAndStatus">
             <h3 >${user.displayName}</h3>
             <div class="status">
               <img  src="img/greenDot.png"/>
               <span>${user.email}</span>
             </div>
-          </div>`;
+          </div> */
+
+  hearSign((user) => {
+    const html = `
+    
+          <div class="containerBox">
+            <div class="banner"></div>
+              <img src="${user.photoURL}" alt="profile_user" class="profileImg">
+              <div class="userAndStatus">
+              <h1 class="userName">${user.displayName}</h1>
+              <div class="status">
+                <img  src="img/greenDot.png"/>
+                <span class="description">${user.email}</span>
+                </div>
+              </div>
+    
+              <button class="btnProfile">Edita tu perfil</button>
+          </div>
+      
+          `;
     userPrincipal.innerHTML = html;
   });
   const validatePost = (datafile) => {
