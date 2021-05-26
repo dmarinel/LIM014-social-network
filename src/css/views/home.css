@@ -62,9 +62,9 @@ aside > .photoProfile{
     margin: 1rem;
    
 }
-.photoProfile{
+/* .photoProfile{
 
-}
+} */
 .userAndStatus > h3 {
     text-align:initial;
     font-size: 1.1rem;
@@ -166,7 +166,6 @@ form > input{
 .gridTemplate{
   display: grid;
   grid-template-columns: minmax(300px, 1fr);
-  grid-gap: 2rem;
   justify-content: center;
 }
 
@@ -182,9 +181,11 @@ form > input{
 
 .banner {
   position: absolute;
-  background-color: #b0bec5;
-  height: 10rem;
+  /* background-color: #b0bec5; */
+  /* background-image: url("src/img/funkoHome.jpg") ; */
+  height: 11rem;
   width: 100%;
+  left: 0px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -192,13 +193,14 @@ form > input{
 
 
 .profileImg{
-  width: 8rem;
-  clip-path: circle(60px at center);
-  margin-top: 4.5rem;
+    width: 150px;
+    clip-path: circle(60px at center);
+    margin: 5rem 0 0 0rem;
 }
 
 .userName {
   font-weight: bold;
+  margin: 10px;
   font-size: 1.5 rem;
 }
 
@@ -219,14 +221,48 @@ form > input{
   background-color: var(--clr-primary);
 }
 
+#editPhoto{
+margin: 15px;}
 
 
+.profile>.containerBox{
+    margin: 30px;
+}
+.editName{
+    border: 3px solid rgba(0, 0, 0, 0.521);
+border-radius: 5px;
+}
 
-
-
-
-
-
+.editButton{
+    width: 30%;
+    border-radius: 1rem;
+    margin: 0 0 1rem;
+    border: none;
+    font-weight: bold;
+    color: white;
+    padding: 0.3rem;
+    background-color: var(--clr-primary);
+}
+.saveButton{
+    width: 30%;
+    border-radius: 1rem;
+    margin: 0 0 1rem;
+    border: none;
+    font-weight: bold;
+    color: white;
+    padding: 0.3rem;
+    background-color: var(--clr-primary);
+}
+.saveCancel{
+    width: 30%;
+    border-radius: 1rem;
+    margin: 0 0 1rem;
+    border: none;
+    font-weight: bold;
+    color: white;
+    padding: 0.3rem;
+    background-color: rgba(255, 0, 0, 0.856);
+}
 /* 
 :root {
     --clr-primary: #0a2bebb2;

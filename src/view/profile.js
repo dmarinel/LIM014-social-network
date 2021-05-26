@@ -4,33 +4,41 @@ import { updateInfoUserPost } from '../lib/user/postsService.js';
 export default () => {
   const viewProfile = document.createElement('section');
   viewProfile.innerHTML = `
-       <button class="editButton">
-       Edit
-       </button>      
-       <button class="hide saveButton">save</button>
-       <button class="hide saveCancel">cancel</button>
+       
        <div class="profile">
       </div>
         `;
 
   const profile = viewProfile.querySelector('.profile');
-  const editButton = viewProfile.querySelector('.editButton');
-  const saveButton = viewProfile.querySelector('.saveButton');
-  const saveCancel = viewProfile.querySelector('.saveCancel');
 
-  console.log(editButton);
   hearSign((user) => {
-    const html = `<img class="photoProfile" width="280" height="200"src="${user.photoURL}"/>
-    <input type="file" id="editPhoto" aria-describedby="inputGroupPrepend" require />
+    const html = `
+    <div class="containerBox">
+    <img src="img/FunkoHome.jpg" class="banner"> </img>
+    <img class="profileImg"  src="${user.photoURL}"/>
+    <input type="file" id="editPhoto" aria-describedby="inputGroupPrepend"  class="hide" require />
     <div class="userAndStatus">
-      <p class="editDisplayName">${user.displayName}</p>
-      <p>${user.email}</p>
-    </div>`;
+      <p class="userName">${user.displayName}</p>
+      <p class="description">${user.email}</p>
+    </div>
+    <button class="editButton">
+       Edit
+       </button>      
+       <button class="hide saveButton">save</button>
+       <button class="hide saveCancel">cancel</button>
+  </div>
+
+
+  
+    `;
     profile.innerHTML = html;
     // console.log(user.uid);
-    const editDisplayName = profile.querySelector('.editDisplayName');
+    const editDisplayName = profile.querySelector('.userName');
     const editPhoto = profile.querySelector('#editPhoto');
-    const photoProfile = profile.querySelector('.photoProfile');
+    const photoProfile = profile.querySelector('.profileImg');
+    const editButton = profile.querySelector('.editButton');
+    const saveButton = profile.querySelector('.saveButton');
+    const saveCancel = profile.querySelector('.saveCancel');
     // console.log(editDisplayName);
     // console.log(editPhoto);
     // console.log(editPhoto.files.length);
@@ -40,6 +48,8 @@ export default () => {
       editButton.classList.add('hide');
       saveButton.classList.remove('hide');
       saveCancel.classList.remove('hide');
+      editPhoto.classList.remove('hide');
+      editDisplayName.classList.add('editName');
     });
 
     saveButton.addEventListener('click', (e) => {
@@ -47,7 +57,9 @@ export default () => {
       editButton.classList.remove('hide');
       saveButton.classList.add('hide');
       saveCancel.classList.add('hide');
+      editPhoto.classList.add('hide');
       editDisplayName.removeAttribute('contenteditable', true);
+      editDisplayName.classList.remove('editName');
       let inputUserName = editDisplayName.textContent;
 
       // const editPhotoUser = editPhoto.value;
@@ -121,6 +133,8 @@ export default () => {
       editButton.classList.remove('hide');
       saveButton.classList.add('hide');
       saveCancel.classList.add('hide');
+      editPhoto.classList.add('hide');
+      editDisplayName.classList.remove('editName');
       editDisplayName.removeAttribute('contenteditable', true);
     });
   });
