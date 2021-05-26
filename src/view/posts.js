@@ -2,7 +2,6 @@ import {
   getPost, deletePost, getPostById, updatePost, likingPost,
 } from '../lib/user/postsService.js';
 import { renderModalPost } from './ModalPost.js';
-import { hearSign } from '../lib/user/userService.js';
 
 export const renderPostUser = (element) => {
   const postUser = document.createElement('section');
@@ -60,49 +59,49 @@ export const renderPostUser = (element) => {
               `;
 
       const userPost = postUnique.querySelector('.editByOwner');
-      hearSign((user) => {
-        // console.log(user.displayName, doc.userSign);
-        if (user.displayName === doc.userSign) {
-          const html = ` <img src="img/editButton.PNG" width="20" height="20" class="btnPostEdit" data-id=${doc.idPost}>
+      const user = firebase.auth().currentUser;
+      // console.log(user.displayName, doc.userSign);
+      if (user.displayName === doc.userSign) {
+        const html = ` <img src="img/editButton.PNG" width="20" height="20" class="btnPostEdit" data-id=${doc.idPost}>
           <img src="img/deleteButton.PNG" width="20" height="20" class="btnPostDelete" data-id=${doc.idPost}>`;
-          userPost.innerHTML = html;
-        } else {
-          // console.log('suerte');
-        }
-        // Funcionalidad para borrar post
-        postUser.querySelectorAll('.btnPostDelete').forEach((btnPostDelete) => btnPostDelete.addEventListener('click', (e) => {
-          const idPost = e.target.dataset.id;
-          // console.log(idPost);
-          deletePost(idPost).then(() => console.log('elemento eliminado'));
-        }));
-        // Funcionalidad para editar post
-        postUser.querySelectorAll('.btnPostEdit').forEach((btnPostEdit) => btnPostEdit.addEventListener('click', (e) => {
-          const idPost = e.target.dataset.id;
-          getPostById(idPost)
-            .then((infoId) => infoId.data())
-            .then((data) => {
-              modal.innerHTML = '';
-              const modalContent = renderModalPost(data);
-              const btnClose = modalContent.querySelector('.close');
-              const btnUpdate = modalContent.querySelector('#btnPostUpdate');
-              btnClose.addEventListener('click', () => {
-                // console.log('hola');
-                modal.style.display = 'none';
-              });
-              btnUpdate.addEventListener('click', () => {
-                // console.log('hola');
-                const inputPost = modalContent.querySelector('#inputPost');
-                updatePost(idPost, {
-                  posting: inputPost.value,
-                });
-                modal.style.display = 'none';
-              });
-              modal.appendChild(modalContent);
-              element.appendChild(modal);
-              modal.style.display = 'block';
+        userPost.innerHTML = html;
+      } else {
+        // console.log('suerte');
+      }
+      // Funcionalidad para borrar post
+      postUser.querySelectorAll('.btnPostDelete').forEach((btnPostDelete) => btnPostDelete.addEventListener('click', (e) => {
+        const idPost = e.target.dataset.id;
+        // console.log(idPost);
+        deletePost(idPost).then(() => console.log('elemento eliminado'));
+      }));
+      // Funcionalidad para editar post
+      postUser.querySelectorAll('.btnPostEdit').forEach((btnPostEdit) => btnPostEdit.addEventListener('click', (e) => {
+        const idPost = e.target.dataset.id;
+        getPostById(idPost)
+          .then((infoId) => infoId.data())
+          .then((data) => {
+            modal.innerHTML = '';
+            const modalContent = renderModalPost(data);
+            const btnClose = modalContent.querySelector('.close');
+            const btnUpdate = modalContent.querySelector('#btnPostUpdate');
+            btnClose.addEventListener('click', () => {
+              // console.log('hola');
+              modal.style.display = 'none';
             });
-        }));
-      });
+            btnUpdate.addEventListener('click', () => {
+              // console.log('hola');
+              const inputPost = modalContent.querySelector('#inputPost');
+              updatePost(idPost, {
+                posting: inputPost.value,
+              });
+              modal.style.display = 'none';
+            });
+            modal.appendChild(modalContent);
+            element.appendChild(modal);
+            modal.style.display = 'block';
+          });
+      }));
+
       postUser.appendChild(postUnique);
     });
 
