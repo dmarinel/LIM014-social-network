@@ -56,10 +56,10 @@ export default () => {
                 <span class="description">${user.email}</span>
                 </div>
               </div>
-    
-              <button class="btnProfile">Edita tu perfil</button>
+               <!-- <p class="userName editName" contenteditable="true">James&nbsp;</p> --!>         
+              <button class="btnProfile" onclick="window.location.hash = '#/Profile'">Edita tu perfil</button>
           </div>
-      
+
           `;
     userPrincipal.innerHTML = html;
   });

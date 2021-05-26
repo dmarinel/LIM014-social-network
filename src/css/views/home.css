@@ -220,7 +220,17 @@ form > input{
   padding: 0.5rem;
   background-color: var(--clr-primary);
 }
+.btnProfile:hover {
+  background-color:var(--blue-strongdark);
+  
+}
 
+.btnProfile:active {
+  background-color:var(--blue-strongdark);
+box-shadow: 0 1.5px #666;
+transform: translateY(2px);
+  
+}
 #editPhoto{
 margin: 15px;}
 
@@ -243,6 +253,17 @@ border-radius: 5px;
     padding: 0.3rem;
     background-color: var(--clr-primary);
 }
+.editButton:hover {
+  background-color:var(--blue-strongdark);
+  
+}
+
+.editButton:active {
+  background-color:var(--blue-strongdark);
+box-shadow: 0 1.5px #666;
+transform: translateY(2px);
+  
+}
 .saveButton{
     width: 30%;
     border-radius: 1rem;
@@ -253,6 +274,17 @@ border-radius: 5px;
     padding: 0.3rem;
     background-color: var(--clr-primary);
 }
+.saveButton:hover {
+  background-color:var(--blue-strongdark);
+  
+}
+
+.saveButton:active {
+  background-color:var(--blue-strongdark);
+box-shadow: 0 1.5px #666;
+transform: translateY(2px);
+  
+}
 .saveCancel{
     width: 30%;
     border-radius: 1rem;
@@ -262,6 +294,17 @@ border-radius: 5px;
     color: white;
     padding: 0.3rem;
     background-color: rgba(255, 0, 0, 0.856);
+}
+.saveCancel:hover {
+  background-color: rgb(255, 0, 0);
+  
+}
+
+.saveCancel:active {
+  background-color: rgb(255, 0, 0);
+box-shadow: 0 1.5px #666;
+transform: translateY(2px);
+  
 }
 /* 
 :root {

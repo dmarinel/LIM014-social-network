@@ -93,4 +93,8 @@ header{
     .postsAllUsers{
         width: 406px;
     }
+    .datePost{
+        margin-left: 12rem;
+    
+    }
   }
