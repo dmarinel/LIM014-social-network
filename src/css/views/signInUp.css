@@ -115,3 +115,6 @@
     display: none;
 }
 
+.wrong::placeholder{
+    color: rgb(255, 0, 0);
+}

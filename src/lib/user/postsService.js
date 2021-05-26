@@ -1,12 +1,15 @@
-//Objeto con todas las propiedades
+// Objeto con todas las propiedades
 export const createPost = (uid, displayName, photoURL, saveInformation, img) => {
   const db = firebase.firestore();
+  const options = {
+    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: 'false',
+  };
   return db.collection('posts').add({
     id: uid,
     user: displayName,
     userImg: photoURL,
     posting: saveInformation,
-    date: new Date().toLocaleString('GMT-0500'),
+    date: new Date().toLocaleString('GMT-0500', options),
     image: img,
     likes: [],
 
@@ -34,6 +37,7 @@ export const getPost = (callback) => {
           img: doc.data().image,
           userSign: doc.data().user,
           likes: doc.data().likes,
+          time: doc.data().date,
         });
         // console.log(post);
         callback(post);
@@ -42,8 +46,6 @@ export const getPost = (callback) => {
       callback(post);
     });
 };
-
-
 
 export const getPostById = (id) => {
   const db = firebase.firestore();
@@ -82,17 +84,14 @@ export const likingPost = (id, likeUser) => {
       likes: likeUser,
     })
     .then(() => {
-      console.log('Document successfully liked!');
+      // console.log('Document successfully liked!');
     })
     .catch((error) => {
-      console.error('Error removing document: ', error);
+      // console.error('Error removing document: ', error);
     });
 };
-
 
 export const updateInfoUserPost = (id, userId) => {
   const db = firebase.firestore();
   return db.collection('posts').where(id, '==', userId).get();
 };
-
-

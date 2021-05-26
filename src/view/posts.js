@@ -33,8 +33,8 @@ export const renderPostUser = (element) => {
                 </img>
               </div>
             </div>
-
-            <p id="formPostShare" class="formPostShare" spellcheck = "false" required>${doc.postUs}</p>
+            <p class="datePost" >${doc.time}</p>
+            <p id="formPostShare" class="formPostShare" spellcheck = "false" >${doc.postUs}</p>
             ${renderImgPost}
             <div class="likesAndComments">
               <p>${doc.likes.length} likes</p>
@@ -70,9 +70,26 @@ export const renderPostUser = (element) => {
       }
       // Funcionalidad para borrar post
       postUser.querySelectorAll('.btnPostDelete').forEach((btnPostDelete) => btnPostDelete.addEventListener('click', (e) => {
-        const idPost = e.target.dataset.id;
-        // console.log(idPost);
-        deletePost(idPost).then(() => console.log('elemento eliminado'));
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success',
+            );
+            const idPost = e.target.dataset.id;
+            // console.log(idPost);
+            deletePost(idPost).then(() => console.log('elemento eliminado'));
+          }
+        });
       }));
       // Funcionalidad para editar post
       postUser.querySelectorAll('.btnPostEdit').forEach((btnPostEdit) => btnPostEdit.addEventListener('click', (e) => {
