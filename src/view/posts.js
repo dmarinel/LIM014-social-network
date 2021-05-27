@@ -37,7 +37,7 @@ export const renderPostUser = (element) => {
             <p id="formPostShare" class="formPostShare" spellcheck = "false" >${doc.postUs}</p>
             ${renderImgPost}
             <div class="likesAndComments">
-              <p>${doc.likes.length} likes</p>
+              <p class="valueLikes">${doc.likes.length} likes</p>
               <p>5 comments</p>
             </div>
             <div class="buttonLikeComment">
@@ -59,7 +59,9 @@ export const renderPostUser = (element) => {
               `;
 
       const userPost = postUnique.querySelector('.editByOwner');
+
       const user = firebase.auth().currentUser;
+
       // console.log(user.displayName, doc.userSign);
       if (user.displayName === doc.userSign) {
         const html = ` <img src="img/editButton.PNG" width="20" height="20" class="btnPostEdit" data-id=${doc.idPost}>
@@ -118,6 +120,14 @@ export const renderPostUser = (element) => {
             modal.style.display = 'block';
           });
       }));
+      const valueLikes = postUnique.querySelector('.valueLikes');
+      //   const blueLike = postUser.querySelector('#buttonLikePost');
+      console.log(valueLikes);
+      console.log(valueLikes.textContent);
+    // if (valueLikes.textContent === '0 likes') {
+    //   postUser.querySelector('#buttonLikePost').styleSheets[0].cssRules[0].style('content');
+    //   blueLike.classList.add('likeActive');
+    // }
 
       postUser.appendChild(postUnique);
     });
@@ -127,7 +137,6 @@ export const renderPostUser = (element) => {
       const userUid = firebase.auth().currentUser.uid;
       // console.log('id de usuario : ', userUid)
       const idPost = e.target.dataset.id;
-      btnLike.classList.add('tumbsActive');
       // console.log('id del post: ', idPost);
 
       getPostById(idPost)
@@ -146,8 +155,11 @@ export const renderPostUser = (element) => {
           if (idUnicos.indexOf(userUid) === -1) {
             newArray.push(userUid);
             // console.log(newArray);
+            // console.log(idUnicos.indexOf(userUid));
             likingPost(idPost, newArray);
           } else {
+            // console.log(idUnicos.indexOf(userUid));
+
             const unlike = idUnicos.filter((element) => {
               if (userUid !== element) {
                 return element;
@@ -158,6 +170,7 @@ export const renderPostUser = (element) => {
           }
         });
     }));
+    
 
     element.appendChild(postUser);
     // console.log(postUser);

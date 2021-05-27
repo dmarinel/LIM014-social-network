@@ -2,7 +2,7 @@
 export const createPost = (uid, displayName, photoURL, saveInformation, img) => {
   const db = firebase.firestore();
   const options = {
-    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: 'false',
+    year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: 'false',
   };
   return db.collection('posts').add({
     id: uid,
