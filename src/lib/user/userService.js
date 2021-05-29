@@ -44,7 +44,6 @@ export const hearSign = (callback) => {
       // console.log(user.displayName);
       // console.log(user.photoURL);
       // console.log(user.email);
-      
       console.log('sign in :3');
       const emailVerified = user.emailVerified;
       // let textoVerificado = '';

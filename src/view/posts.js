@@ -1,5 +1,8 @@
-import { getPost, deletePost, getPostById, updatePost , likingPost} from '../lib/user/postsService.js';
+import {
+  getPost, deletePost, getPostById, updatePost, likingPost,
+} from '../lib/user/postsService.js';
 import { renderModalPost } from './ModalPost.js';
+/* import { renderComment } from './comment.js'; */
 
 export const renderPostUser = (element) => {
   const postUser = document.createElement('section');
@@ -7,11 +10,10 @@ export const renderPostUser = (element) => {
   const modal = document.createElement('div');
   modal.classList.add('modal');
   modal.setAttribute('id', 'myModal');
-  
-  
-  getPost((dataPost) => { 
-    //console.log('Devuelve un objeto con idPost, img, likes, postUs', dataPost[0].idPost);
-    //console.log(dataPost)
+
+  getPost((dataPost) => {
+    // console.log('Devuelve un objeto con idPost, img, likes, postUs', dataPost[0].idPost);
+    // console.log(dataPost)
     postUser.innerHTML = '';
     dataPost.forEach((doc) => {
       // console.log(doc);
@@ -55,47 +57,47 @@ export const renderPostUser = (element) => {
               </section>
               
               `;
-              
+      console.log(doc.idPost);
       postUser.appendChild(postUnique);
-
+      /* renderComment(doc.idPost); */
     });
 
-    //Funcionalidad para borrar post
+    // Funcionalidad para borrar post
     postUser.querySelectorAll('.btnPostDelete').forEach((btnPostDelete) => btnPostDelete.addEventListener('click', (e) => {
       const idPost = e.target.dataset.id;
       console.log(idPost);
       deletePost(idPost).then(() => console.log('elemento eliminado'));
     }));
 
-    //Funcionalidad para editar post
+    // Funcionalidad para editar post
     postUser.querySelectorAll('.btnPostEdit').forEach((btnPostEdit) => btnPostEdit.addEventListener('click', (e) => {
-          const idPost = e.target.dataset.id;
-          getPostById(idPost)
-            .then((infoId) => infoId.data())
-            .then((data) => {
-              modal.innerHTML = '';
-              const modalContent = renderModalPost(data);
-              const btnClose = modalContent.querySelector('.close');
-              const btnUpdate = modalContent.querySelector('#btnPostUpdate');
-              btnClose.addEventListener('click', () => {
-                console.log('hola');
-                modal.style.display = 'none';
-              });
-              btnUpdate.addEventListener('click', () => {
-                console.log('hola');
-                const inputPost = modalContent.querySelector('#inputPost');
-                updatePost(idPost, {
-                  posting: inputPost.value,
-                });
-                modal.style.display = 'none';
-              });
-              modal.appendChild(modalContent);
-              element.appendChild(modal);
-              modal.style.display = 'block';
+      const idPost = e.target.dataset.id;
+      getPostById(idPost)
+        .then((infoId) => infoId.data())
+        .then((data) => {
+          modal.innerHTML = '';
+          const modalContent = renderModalPost(data);
+          const btnClose = modalContent.querySelector('.close');
+          const btnUpdate = modalContent.querySelector('#btnPostUpdate');
+          btnClose.addEventListener('click', () => {
+            console.log('hola');
+            modal.style.display = 'none';
+          });
+          btnUpdate.addEventListener('click', () => {
+            console.log('hola');
+            const inputPost = modalContent.querySelector('#inputPost');
+            updatePost(idPost, {
+              posting: inputPost.value,
             });
-        })); 
+            modal.style.display = 'none';
+          });
+          modal.appendChild(modalContent);
+          element.appendChild(modal);
+          modal.style.display = 'block';
+        });
+    }));
 
-        //Funcionalidad para darle like a los post
+    // Funcionalidad para darle like a los post
     postUser.querySelectorAll('#buttonLikePost').forEach((btnLike) => btnLike.addEventListener('click', (e) => {
       const userUid = firebase.auth().currentUser.uid;
       // console.log('id de usuario : ', userUid)
@@ -111,28 +113,28 @@ export const renderPostUser = (element) => {
           const newArray = [...data.likes];
           console.log('Array con el id de todos los usuarios que dieron like: ', newArray);
 
-        const idUnicos = [...new Set(newArray)]
-        console.log('Filtra los id de usuarios repetidos', idUnicos);
-      
-        console.log('Devuelve la posición de cada id unico', idUnicos.indexOf(userUid));
-  
-        if (idUnicos.indexOf(userUid) == -1 ) {
-          newArray.push(userUid);
-          console.log(newArray)
-          likingPost(idPost, newArray);
-        } else {
-          const unlike = idUnicos.filter((element) => {
-            if(userUid !== element) {
-              return element
-            }
-          })
-          console.log(unlike)
-          likingPost(idPost , unlike);
-        }
-    });
-  }))
+          const idUnicos = [...new Set(newArray)];
+          console.log('Filtra los id de usuarios repetidos', idUnicos);
+
+          console.log('Devuelve la posición de cada id unico', idUnicos.indexOf(userUid));
+
+          if (idUnicos.indexOf(userUid) == -1) {
+            newArray.push(userUid);
+            console.log(newArray);
+            likingPost(idPost, newArray);
+          } else {
+            const unlike = idUnicos.filter((element) => {
+              if (userUid !== element) {
+                return element;
+              }
+            });
+            console.log(unlike);
+            likingPost(idPost, unlike);
+          }
+        });
+    }));
 
     element.appendChild(postUser);
-     // console.log(postUser);
+    // console.log(postUser);
   });
 };

@@ -36,14 +36,12 @@ export const getPost = (callback) => {
           likes: doc.data().likes,
         });
         // console.log(post);
-        callback(post);
+        /* callback(post); */
       });
       // console.log(post);
       callback(post);
     });
 };
-
-
 
 export const getPostById = (id) => {
   const db = firebase.firestore();
