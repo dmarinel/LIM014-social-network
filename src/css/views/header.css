@@ -55,6 +55,6 @@ header > ul.show{
     font-family: var(--roboto);
     
 } 
-.fa{
+.fa-bars{
     color: var(--blue-strongdark);
 }

@@ -108,10 +108,13 @@
  
 }
 
-h1{
+/* h1{
     font-size: 1.75rem;
-}
+} */
 .homeFunkOok{
     display: none;
 }
 
+.wrong::placeholder{
+    color: rgb(255, 0, 0);
+}

@@ -33,7 +33,7 @@ export default () => {
   const postPhoto = viewHome.querySelector('#postPhoto');
 
   const userPrincipal = viewHome.querySelector('.userPrincipal');
-/* 
+  /*
   <img class="photoProfile" src="${user.photoURL}"/>
           <div class="userAndStatus">
             <h3 >${user.displayName}</h3>
@@ -47,7 +47,7 @@ export default () => {
     const html = `
     
           <div class="containerBox">
-            <div class="banner"></div>
+            <img src="img/FunkoHome.jpg" class="banner"> </img>
               <img src="${user.photoURL}" alt="profile_user" class="profileImg">
               <div class="userAndStatus">
               <h1 class="userName">${user.displayName}</h1>
@@ -56,10 +56,10 @@ export default () => {
                 <span class="description">${user.email}</span>
                 </div>
               </div>
-    
-              <button class="btnProfile">Edita tu perfil</button>
+               <!-- <p class="userName editName" contenteditable="true">James&nbsp;</p> --!>         
+              <button class="btnProfile" onclick="window.location.hash = '#/Profile'">Edita tu perfil</button>
           </div>
-      
+
           `;
     userPrincipal.innerHTML = html;
   });

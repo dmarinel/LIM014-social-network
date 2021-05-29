@@ -1,12 +1,24 @@
+@media screen and (min-width: 1060px) {
+    .containerBox{
+        width: 380px;
+    }
+    /* div.createPost{
+        width: 606px;
+    }
+    .postsAllUsers{
+        width: 606px;
+    } */
+    /* .descriptionPost{
+        width: 541px;
+    } */
+  }
 @media only screen and (min-width: 1000px){
     .allContainer{
-        /* display: flex; */
     justify-content: center;    
 }
 .container-signIn{
     width: 500px;
     justify-self: center;
-    /* box-shadow: 0 0 15px 10px; */
 }
 .homeFunkOok{
     display: flex;
@@ -51,11 +63,38 @@ header{
     color: var(--white);
     font-family: var(--roboto);
     font-weight:400;
-    /*color: inherit;
-    border: none;
-    padding: 0;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit; */
 }
 }
+
+@media screen and (min-width: 864px) {
+    .gridTemplate {
+      margin: 40px 0px 0px 0px;
+      grid-template-areas:
+        "a b"
+        "a c";
+    }
+    .userPrincipal{
+        position: fixed;
+        left: 4rem;
+    }
+    .containerBox{
+        grid-area: a;
+        margin: 0;
+    }
+    .createPost{
+        grid-area: b;
+    }
+    .containerHome>section{
+        grid-area: c;
+    }
+    div.createPost{
+        width: 406px;
+    }
+    .postsAllUsers{
+        width: 406px;
+    }
+    .datePost{
+        margin-left: 15.5rem;
+    
+    }
+  }
