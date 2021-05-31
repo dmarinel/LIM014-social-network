@@ -37,7 +37,5 @@
   "engines": {
     "node": ">=10"
   },
-  "dependencies": {
-    "mock-cloud-firestore": "^0.12.0"
-  }
+  "dependencies": {}
 }

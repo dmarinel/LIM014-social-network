@@ -59,7 +59,10 @@ export const deletePost = (id) => {
 
 export const updatePost = (id, updatedPost) => {
   const db = firebase.firestore();
-  return db.collection('posts').doc(id).update(updatedPost);
+  return db.collection('posts').doc(id)
+    .update(
+      updatedPost,
+    );
 };
 
 export const createUrlImgPost = (file) => {
@@ -82,13 +85,6 @@ export const likingPost = (id, likeUser) => {
   firebase.firestore().collection('posts').doc(id)
     .update({
       likes: likeUser,
-    })
-    .then(() => {
-      // console.log('Document successfully liked!');
-    })
-    // eslint-disable-next-line no-unused-vars
-    .catch((error) => {
-      // console.error('Error removing document: ', error);
     });
 };
 
