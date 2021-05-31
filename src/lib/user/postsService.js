@@ -9,7 +9,9 @@ export const createPost = (uid, displayName, photoURL, saveInformation, img) => 
     user: displayName,
     userImg: photoURL,
     posting: saveInformation,
-    date: new Date().toLocaleString('GMT-0500', options),
+    date: new Date().toLocaleString('es-PE', options),
+    // date: new Date().toLocaleString('GMT-0500'),
+    // date: new Date().toDateString('GMT-0500'),
     image: img,
     likes: [],
 
