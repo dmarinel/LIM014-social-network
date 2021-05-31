@@ -86,7 +86,7 @@
     cursor: pointer;
     font-size: 0.9rem;
     font-weight: 500;
-    box-shadow: 0 3px #999;
+    /* box-shadow: 0 3px #999; */
 }
 .buttonAllLogin:hover {
     background-color:var(--blue-strongdark);

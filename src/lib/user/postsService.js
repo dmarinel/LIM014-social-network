@@ -10,8 +10,11 @@ export const createPost = (uid, displayName, photoURL, saveInformation, img) => 
     userImg: photoURL,
     posting: saveInformation,
     date: new Date().toLocaleString('es-PE', options),
+<<<<<<< HEAD
     // date: new Date().toLocaleString('GMT-0500'),
     // date: new Date().toDateString('GMT-0500'),
+=======
+>>>>>>> 34c49427b1e5ea91d30698d892e67a6705511cec
     image: img,
     likes: [],
 
@@ -88,6 +91,7 @@ export const likingPost = (id, likeUser) => {
     .then(() => {
       // console.log('Document successfully liked!');
     })
+    // eslint-disable-next-line no-unused-vars
     .catch((error) => {
       // console.error('Error removing document: ', error);
     });
