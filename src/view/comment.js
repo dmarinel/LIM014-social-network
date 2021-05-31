@@ -1,4 +1,4 @@
-import { creatingComment, getComment } from '../lib/user/commentService.js';
+/* import { creatingComment, getComment } from '../lib/user/commentService.js';
 import { getPostById } from '../lib/user/postsService.js';
 
 
@@ -36,4 +36,4 @@ export const renderComment = (idPost) => {
     let getComment = document.getElementById(e.target.dataset.id)
     getComment.innerHTML = "";
   }));
-};
+}; */
