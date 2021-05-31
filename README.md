@@ -53,8 +53,16 @@ Estas son las historias de usuario que se tuvieron en cuenta para la realizació
 ## 5. Diseño de interfaz de usuario
 
 Estos fueron los diseños de alta fidelidad 
+
 * **Vista Mobile**
+
+![alt text](src\Imagenes_ReadMe\Mobile_login.PNG)
+![alt text](src\Imagenes_ReadMe\Mobile_profile.PNG)
+
 * **Vista Desktop**
+
+
+
 
 ## 6. Prototipo final
 
@@ -63,6 +71,10 @@ Gracias a los feedback recibidos por parte de los usuarios, los coaches y nuestr
 
 
 
+
+![alt text](src\Imagenes_ReadMe\Deskop_login.PNG)
+
+![alt text](src\Imagenes_ReadMe\Desktop_profile.PNG)
 
 
 
