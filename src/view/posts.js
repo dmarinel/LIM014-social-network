@@ -1,3 +1,7 @@
+/* eslint-disable consistent-return */
+/* eslint-disable array-callback-return */
+/* eslint-disable no-shadow */
+/* eslint-disable no-undef */
 import {
   getPost, deletePost, getPostById, updatePost, likingPost,
 } from '../lib/user/postsService.js';
@@ -124,10 +128,10 @@ export const renderPostUser = (element) => {
       //   const blueLike = postUser.querySelector('#buttonLikePost');
       console.log(valueLikes);
       console.log(valueLikes.textContent);
-    // if (valueLikes.textContent === '0 likes') {
-    //   postUser.querySelector('#buttonLikePost').styleSheets[0].cssRules[0].style('content');
-    //   blueLike.classList.add('likeActive');
-    // }
+      // if (valueLikes.textContent === '0 likes') {
+      //   postUser.querySelector('#buttonLikePost').styleSheets[0].cssRules[0].style('content');
+      //   blueLike.classList.add('likeActive');
+      // }
 
       postUser.appendChild(postUnique);
     });
@@ -170,7 +174,6 @@ export const renderPostUser = (element) => {
           }
         });
     }));
-    
 
     element.appendChild(postUser);
     // console.log(postUser);

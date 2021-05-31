@@ -12,7 +12,7 @@ header{
 }
 
 .hamburger{
-    background-color: var(--white);
+    background: var(--white);
     height: 38px;
     border: 0;
     width: 43px;
@@ -36,7 +36,7 @@ header > ul.show{
     align-items: center;
     padding: 1rem;
     gap:1rem;
-    background-color:var(--blue-dark);
+    background:var(--blue-dark);
     list-style: none;
     font-size: 1.2rem;
     font-weight: 700;
@@ -46,11 +46,10 @@ header > ul.show{
 }
 
 .btnLogOut{
-    background-color:var(--light-blue);
+    background:var(--light-blue);
     border:none;
     font-size: 1.2rem;
     font-weight: 700;
-    background: none;
     color: var(--white);
     font-family: var(--roboto);
     
