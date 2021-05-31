@@ -56,8 +56,8 @@ Estos fueron los diseños de alta fidelidad
 
 * **Vista Mobile**
 
-![image](src\Imagenes_ReadMe\Mobile_login.PNG)
-![image](src\Imagenes_ReadMe\Mobile_profile.PNG)
+![image](imagenes_Readme\Mobile_login.PNG)
+![image](imagenes_Readme\Mobile_profile.PNG)
 
 
 * **Vista Desktop**
@@ -73,9 +73,9 @@ Gracias a los feedback recibidos por parte de los usuarios, los coaches y nuestr
 
 
 
-![image](src\Imagenes_ReadMe\Deskop_login.PNG)
+![image](imagenes_Readme\Deskop_login.PNG)
 
-![image](src\Imagenes_ReadMe\Desktop_profile.PNG)
+![image](imagenes_Readme\Desktop_profile.PNG)
 
 
 
