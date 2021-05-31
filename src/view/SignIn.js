@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { signIn, signInGoogle } from '../lib/user/userService.js';
 
 export default () => {

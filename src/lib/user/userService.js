@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // aqui exportaras las funciones que necesites
 
 // ****** SIGN UP ********
@@ -22,7 +23,7 @@ export const upDateUser = (displayName, photoURL) => {
 export const uploadFileUserImg = (file) => {
   const storageRef = firebase.storage().ref();
   const metadata = {
-    contentType: 'image/jpeg',
+    contentType: 'image/jpg',
   };
 
   // Upload the file and metadata

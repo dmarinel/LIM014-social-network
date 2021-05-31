@@ -1,37 +1,30 @@
-// importamos la funcion que vamos a testear
-// import { myFunction } from '../src/lib/index';
-
-// describe('myFunction', () => {
-//   it('debería ser una función', () => {
-//     expect(typeof myFunction).toBe('function');
-//   });
-// });
-
 import MockFirebase from 'mock-cloud-firestore';
-import { createPost, getPost } from '../src/lib/user/postsService.js';
+import {
+  createPost, getPost, deletePost, getPostById,
+} from '../src/lib/user/postsService.js';
 
+// Collection Firebase mock
 const fixtureData = {
   __collection__: {
-    post: {
+    posts: {
       __doc__: {
         id_001: {
+          date: '',
           id: '001',
+          image: '',
+          likes: '',
+          posting: 'holis',
           user: '',
           userImg: '',
-          posting: 'holis',
-          date: '',
-          image: '',
-          likes: [],
         },
       },
     },
   },
 };
-
 global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });
 
 describe('add new post', () => {
-  it('Debería agregar una nueva publicación', (done) => createPost('id_002', 'Denisse', 'prueba.jpg', 'hola', '')
+  it('Deberia agregar una nueva publicación', (done) => createPost('id_002', 'Denisse', 'prueba.jpg', 'hola', '')
     .then(() => getPost(
       (data) => {
         const result = data.find((post) => post.postUs === 'hola');
@@ -40,3 +33,20 @@ describe('add new post', () => {
       },
     )));
 });
+
+it('Debería poder eliminar un post', (done) => deletePost('id_001')
+  .then(() => getPost(
+    (data) => {
+      const result = data.find((post) => post.id === 'id_001');
+      expect(result).toBe(undefined);
+      done();
+    },
+  )));
+it('Debería poder obtener un post por id', (done) => getPostById('id_001')
+  .then(() => getPost(
+    (data) => {
+      const result = data.find((post) => post.id === 'id_001');
+      expect(result).toBe(undefined);
+      done();
+    },
+  )));

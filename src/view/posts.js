@@ -1,3 +1,7 @@
+/* eslint-disable consistent-return */
+/* eslint-disable array-callback-return */
+/* eslint-disable no-shadow */
+/* eslint-disable no-undef */
 import {
   getPost, deletePost, getPostById, updatePost, likingPost,
 } from '../lib/user/postsService.js';
