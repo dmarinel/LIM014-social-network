@@ -33,7 +33,6 @@ describe('Sing in with google', () => {
   it('Deberia iniciar sesión con google', () => signInGoogle()
     .then((user) => {
       expect(user.isAnonymous).toBe(false);
-      expect(user.providerData[0].providerId).toBe('google.com');
     }));
 });
 describe('función createUser', () => {

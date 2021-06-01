@@ -117,6 +117,9 @@ export const renderPostUser = (element) => {
               updatePost(idPost, {
                 posting: inputPost.value,
               });
+              console.log(idPost, {
+                posting: inputPost.value,
+              });
               modal.style.display = 'none';
             });
             modal.appendChild(modalContent);
