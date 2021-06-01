@@ -60,11 +60,6 @@ Estos fueron los diseños de alta fidelidad
 ![](https://raw.githubusercontent.com/BrigitteNikoll/LIM014-social-network/BaxterDev/imagenes_Readme/Mobile_profile.PNG)
 
 
-* **Vista Desktop**
-
-
-
-
 ## 6. Prototipo final
 
 Se realizaron múltiples testeos para asegurar que Funk-ook cumpla con las necesidades que los usuarios requerían.
