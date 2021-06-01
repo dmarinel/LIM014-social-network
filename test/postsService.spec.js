@@ -1,6 +1,6 @@
 import MockFirebase from 'mock-cloud-firestore';
 import {
-  createPost, getPost, deletePost, getPostById, updatePost,
+  createPost, getPost, deletePost, getPostById, updatePost, likingPost,
 } from '../src/lib/user/postsService.js';
 
 // Collection Firebase mock
@@ -12,7 +12,7 @@ const fixtureData = {
           date: '',
           id: '001',
           image: '',
-          likes: '',
+          likes: ['001'],
           posting: 'holis',
           user: '',
           userImg: '',
@@ -29,44 +29,13 @@ describe('add new post', () => {
       (data) => {
         const result = data.find((post) => post.postUs === 'hola');
         expect(result.postUs).toBe('hola');
+
         done();
       },
     )));
 });
 
-// describe('update Post', () => {
-//   it('Deberia actualizar información del post', (done) => updatePost('id_002', 'post editado')
-//     .then(() => getPost(
-//       (data) => {
-//         const result = data.find((post) => post.postUs === 'post editado');
-//         expect(result.postUs).toBe('post editado');
-//         done();
-//       },
-//     )));
-// });
-
-// describe('liking Post', () => {
-//   it('Deberia actualizar información del post', (done) => likingPost('id_002', 'id_001')
-//     .then(() => getPost(
-//       (data) => {
-//         const result = data.find((post) => post.likes === 'id_001');
-//         expect(result.likes).toBe('id_001');
-//         done();
-//       },
-//     )));
-// });
-
-// describe('Función upgradeLike', () => {
-//   it('Deberia ser una función', () => {
-//     expect(typeof likingPost).toBe('function');
-//   });
-//   it('Debería poder actualizar los likes del post', (done) => likingPost('id_001', '')
-//     .then((user) => {
-//       expect(user).toBe([]);
-//       done();
-//     }));
-// });
-describe('ELIMINA UN POST', () => {
+describe('delete post', () => {
   it('Debería poder eliminar un post', (done) => deletePost('id_001')
     .then(() => getPost(
       (data) => {
@@ -76,7 +45,8 @@ describe('ELIMINA UN POST', () => {
       },
     )));
 });
-describe('OBTIENE UN POST', () => {
+
+describe('getPostById', () => {
   it('Debería poder obtener un post por id', (done) => getPostById('id_001')
     .then(() => getPost(
       (data) => {
@@ -87,12 +57,24 @@ describe('OBTIENE UN POST', () => {
     )));
 });
 
-describe('update Post', () => {
-  it('Deberia actualizar información del post', (done) => updatePost('id_001', { posting: 'haciendo testsss' })
+// INTENTOS FALLIDOS
+describe('edit post', () => {
+  it('Debería poder editar un post con id: 001', (done) => updatePost('id_001', 'se edito post')
     .then(() => getPost(
       (data) => {
-        const result = data.find((post) => post.posting === 'post editado');
-        expect(result.posting).toBe('post editado');
+        const result = data.find((post) => post.posting === 'se edito post');
+        expect(result.posting).toBe('se edito post');
+        done();
+      },
+    )));
+});
+
+describe('dando like a la publicación', () => {
+  it('Debería poder dar like al post', (done) => likingPost('id_001', '001')
+    .then(() => getPost(
+      (data) => {
+        const result = data.find((element) => element.likes === '001');
+        expect(result.likes).toBe('001');
         done();
       },
     )));

@@ -49,11 +49,11 @@ export default () => {
     const passwordWrong = document.querySelector('#signUpPassword');
     const emailWrong = document.querySelector('#signUpEmail');
     if (signUpname.value === '' || passwordWrong.value === '' || emailWrong.value === '' || signUpPhoto.files.length === 0) {
-      console.log(signUpname.value);
-      console.log(passwordWrong.value);
-      console.log(emailWrong.value);
-      console.log(signUpPhoto.files.length);
-      console.log('help');
+      // console.log(signUpname.value);
+      // console.log(passwordWrong.value);
+      // console.log(emailWrong.value);
+      // console.log(signUpPhoto.files.length);
+      // console.log('help');
       signUpname.classList.add('wrong');
       passwordWrong.classList.add('wrong');
       emailWrong.classList.add('wrong');

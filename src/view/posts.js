@@ -4,8 +4,10 @@
 /* eslint-disable no-undef */
 import {
   getPost, deletePost, getPostById, updatePost, likingPost,
+// eslint-disable-next-line import/named
 } from '../lib/user/postsService.js';
 import { renderModalPost } from './ModalPost.js';
+/* import { renderComment } from './comment.js'; */
 
 export const renderPostUser = (element) => {
   const postUser = document.createElement('section');
@@ -49,16 +51,6 @@ export const renderPostUser = (element) => {
             <i  class="fa fa-thumbs-up fa-lg" id="buttonLikePost" data-id=${doc.idPost}></i>
               <button class="buttonCommentPost">Comment</button>
             </div>
-
-
-            <section id="commentContainer">
-              <div class="writteComment">
-                <textarea class="comment" placeholder="Escribe algo!" required></textarea>
-                <button class="publicar" data-id=${doc.idPost}>Publicar</button>
-              </div>
-
-              <div id="${doc.idPost}"></div>
-              </section>
               
               `;
 
@@ -127,10 +119,10 @@ export const renderPostUser = (element) => {
             modal.style.display = 'block';
           });
       }));
-      const valueLikes = postUnique.querySelector('.valueLikes');
+      // const valueLikes = postUnique.querySelector('.valueLikes');
       //   const blueLike = postUser.querySelector('#buttonLikePost');
-      console.log(valueLikes);
-      console.log(valueLikes.textContent);
+      // console.log(valueLikes);
+      // console.log(valueLikes.textContent);
       // if (valueLikes.textContent === '0 likes') {
       //   postUser.querySelector('#buttonLikePost').styleSheets[0].cssRules[0].style('content');
       //   blueLike.classList.add('likeActive');
@@ -177,7 +169,6 @@ export const renderPostUser = (element) => {
           }
         });
     }));
-
     element.appendChild(postUser);
     // console.log(postUser);
   });

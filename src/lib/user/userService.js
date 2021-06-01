@@ -13,10 +13,11 @@ export const sendEmail = () => {
 };
 
 export const upDateUser = (displayName, photoURL) => {
-  console.log('hola update user');
-  console.log(displayName, photoURL);
+  // console.log('hola update user');
+  // console.log(displayName, photoURL);
 
   const user = firebase.auth().currentUser;
+  // console.log(user.updateProfile({ displayName, photoURL }));
   return user.updateProfile({ displayName, photoURL });
 };
 
