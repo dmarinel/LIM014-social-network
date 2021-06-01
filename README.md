@@ -56,8 +56,8 @@ Estos fueron los diseños de alta fidelidad
 
 * **Vista Mobile**
 
-![image](imagenes_Readme\Mobile_login.PNG)
-![image](imagenes_Readme\Mobile_profile.PNG)
+![](https://raw.githubusercontent.com/BrigitteNikoll/LIM014-social-network/BaxterDev/imagenes_Readme/Mobile_login.PNG)
+![](https://raw.githubusercontent.com/BrigitteNikoll/LIM014-social-network/BaxterDev/imagenes_Readme/Mobile_profile.PNG)
 
 
 * **Vista Desktop**
@@ -73,9 +73,9 @@ Gracias a los feedback recibidos por parte de los usuarios, los coaches y nuestr
 
 
 
-![image](imagenes_Readme\Deskop_login.PNG)
+![](https://raw.githubusercontent.com/BrigitteNikoll/LIM014-social-network/BaxterDev/imagenes_Readme/Deskop_login.PNG)
 
-![image](imagenes_Readme\Desktop_profile.PNG)
+![](https://raw.githubusercontent.com/BrigitteNikoll/LIM014-social-network/BaxterDev/imagenes_Readme/Desktop_profile.PNG)
 
 
 
