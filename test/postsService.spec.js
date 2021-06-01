@@ -1,7 +1,7 @@
 import MockFirebase from 'mock-cloud-firestore';
 import {
   createPost, getPost, deletePost, getPostById,
-} from '../src/lib/user/postsService.js';
+} from '../src/lib/user/postsService';
 
 // Collection Firebase mock
 const fixtureData = {
