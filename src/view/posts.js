@@ -7,6 +7,7 @@ import {
 // eslint-disable-next-line import/named
 } from '../lib/user/postsService.js';
 import { renderModalPost } from './ModalPost.js';
+/* import { renderComment } from './comment.js'; */
 
 export const renderPostUser = (element) => {
   const postUser = document.createElement('section');
@@ -50,16 +51,6 @@ export const renderPostUser = (element) => {
             <i  class="fa fa-thumbs-up fa-lg" id="buttonLikePost" data-id=${doc.idPost}></i>
               <button class="buttonCommentPost">Comment</button>
             </div>
-
-
-            <section id="commentContainer">
-              <div class="writteComment">
-                <textarea class="comment" placeholder="Escribe algo!" required></textarea>
-                <button class="publicar" data-id=${doc.idPost}>Publicar</button>
-              </div>
-
-              <div id="${doc.idPost}"></div>
-              </section>
               
               `;
 
@@ -175,7 +166,6 @@ export const renderPostUser = (element) => {
           }
         });
     }));
-
     element.appendChild(postUser);
     // console.log(postUser);
   });
