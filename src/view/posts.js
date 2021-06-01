@@ -4,6 +4,7 @@
 /* eslint-disable no-undef */
 import {
   getPost, deletePost, getPostById, updatePost, likingPost,
+// eslint-disable-next-line import/named
 } from '../lib/user/postsService.js';
 import { renderModalPost } from './ModalPost.js';
 /* import { renderComment } from './comment.js'; */
@@ -115,10 +116,10 @@ export const renderPostUser = (element) => {
             modal.style.display = 'block';
           });
       }));
-      const valueLikes = postUnique.querySelector('.valueLikes');
+      // const valueLikes = postUnique.querySelector('.valueLikes');
       //   const blueLike = postUser.querySelector('#buttonLikePost');
-      console.log(valueLikes);
-      console.log(valueLikes.textContent);
+      // console.log(valueLikes);
+      // console.log(valueLikes.textContent);
       // if (valueLikes.textContent === '0 likes') {
       //   postUser.querySelector('#buttonLikePost').styleSheets[0].cssRules[0].style('content');
       //   blueLike.classList.add('likeActive');
